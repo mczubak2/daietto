@@ -1,0 +1,49 @@
+// @import '../../node_modules/flatpickr/dist/flatpickr.min.css';
+
+
+.flatpickr-calendar {
+  @include rtl {
+    .dayContainer,
+    .flatpickr-weekdaycontainer {
+      flex-direction: row-reverse;
+    }
+    .flatpickr-months {
+      .flatpickr-month {
+        height: 32px;
+      }
+      .flatpickr-prev-month {
+        left: unset;
+        right: 0;
+        transform: scaleX(-1);
+      }
+      .flatpickr-next-month {
+        right: unset;
+        left: 0;
+        transform: scaleX(-1);
+      }
+    }
+  }
+}
+
+.flatpickr-day {
+
+  @include rtl {
+    &.selected.startRange,
+    &.startRange.startRange,
+    &.endRange.startRange {
+      border-radius: 0 50px 50px 0;
+    }
+    &.selected.endRange,
+    &.startRange.endRange,
+    &.endRange.endRange {
+      border-radius: 50px 0 0 50px;
+    }
+  }
+}
+
+.flatpickr-current-month {
+  @include rtl {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

@@ -1,0 +1,18 @@
+[data-slider-wrapper] {
+  font-size: 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+[data-slider-items] {
+  white-space: nowrap;
+  transition: transform;
+}
+
+[data-slider-item] {
+  display: inline-block;
+}
+
+[data-slider-item-clone] {
+  // opacity: .5;
+}

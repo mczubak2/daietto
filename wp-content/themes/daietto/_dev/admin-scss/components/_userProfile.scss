@@ -1,0 +1,14 @@
+#your-profile {
+
+  h2 {
+
+    &:nth-of-type(1),
+    &:nth-of-type(4) {
+      display: none;
+
+      & + table {
+        display: none;
+      }
+    }
+  }
+}

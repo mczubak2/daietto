@@ -1,0 +1,53 @@
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], input[type=checkbox], input[type=radio],
+select, textarea,
+.wp-admin select, .acf-field select {
+  border-color: #B4B9BE;
+  box-shadow: none !important;
+}
+
+input[type=checkbox]:checked::before {
+  margin: -.0875rem 0 0 -.15rem;
+  height: 1.1125rem;
+  width: 1.1125rem;
+}
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week],
+select, textarea,
+.wp-admin select,
+.wp-core-ui .button,
+.wp-core-ui .button.button-large {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.acf-field select {
+  padding: 5px 10px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.wp-admin,
+.acf-field {
+
+  select {
+    padding-left: 10px;
+    padding-right: 27px;
+
+    option,
+    optgroup {
+      font-size: 14px;
+      color: #32373c;
+    }
+  }
+}
+
+.wrap .page-title-action {
+  font-size: 12px;
+  line-height: 28px;
+}
+
+.acf-field p.description {
+  font-size: 12px;
+}
