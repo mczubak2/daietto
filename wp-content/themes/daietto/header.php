@@ -1,3 +1,6 @@
+<?php
+  include_once(__DIR__ . DIRECTORY_SEPARATOR . 'includes/core.php');
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
