@@ -11,7 +11,7 @@ wp-content/themes/*/dist/styles.css
 *.DS_Store
 wp-config.php
 wp-content/debug.log
-wp-content/themes/daietto/dist/
+wp-content/themes/daietto/public/
 wp-content/themes/daietto/vendor/
 wp-content/themes/daietto/node_modules
 wp-content/themes/daietto/packages-lock.json

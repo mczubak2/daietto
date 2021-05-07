@@ -11,10 +11,6 @@ body {
   font-family: $f-first;
   font-weight: 400;
   color: $c-black;
-
-  @include rtl {
-    font-family: $f-second;
-  }
 }
 
 input[type="search"]::-webkit-search-decoration,

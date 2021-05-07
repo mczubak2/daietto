@@ -117,12 +117,6 @@ $rtlActive  : false !default;
       .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
         float: none;
         display: flex;
-
-        @if $rtlActive {
-          @include rtl() {
-            float: none;
-          }
-        }
       }
     }
 
@@ -135,12 +129,6 @@ $rtlActive  : false !default;
       padding-left: ($gridGutter / 2);
       padding-right: ($gridGutter / 2);
       box-sizing: border-box;
-
-      @if $rtlActive {
-        @include rtl() {
-          float: right;
-        }
-      }
     }
 
     /* ---
@@ -158,13 +146,6 @@ $rtlActive  : false !default;
 
       .offset-col-#{$i} {
         margin-left: ($i * (100% / 12));
-
-        @if $rtlActive {
-          @include rtl() {
-            margin-left: 0;
-            margin-right: ($i * (100% / 12));
-          }
-        }
       }
     }
 
@@ -185,12 +166,6 @@ $rtlActive  : false !default;
           .col-#{$index}-#{$i} {
             margin-left: 0;
             width: ($i * (100% / 12));
-
-            @if $rtlActive {
-              @include rtl() {
-                margin-right: 0;
-              }
-            }
           }
         }
 
@@ -198,13 +173,6 @@ $rtlActive  : false !default;
 
           .offset-col-#{$index}-#{$i} {
             margin-left: ($i * (100% / 12));
-
-            @if $rtlActive {
-              @include rtl() {
-                margin-left: 0;
-                margin-right: ($i * (100% / 12));
-              }
-            }
           }
         }
       }
