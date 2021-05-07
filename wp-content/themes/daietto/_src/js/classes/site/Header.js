@@ -8,8 +8,10 @@ export default class Header
 
   setVars()
   {
-    this.section = document.querySelector('.header');
-    if (!this.section) return;
+    this.selectors = {
+      header: document.querySelector('[data-header]')
+    }
+    if (!this.selectors.header) return;
 
     return true;
   }

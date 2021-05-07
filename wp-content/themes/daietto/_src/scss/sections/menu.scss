@@ -1,9 +1,10 @@
-.topMenu {
+.menu {
   display: flex;
   align-items: center;
 
   &__list {
     display: flex;
+    font-family: $fMain;
   }
 
   &__item {
@@ -13,10 +14,6 @@
   &__link {
     display: block;
     height: 100%;
+    color: $cGray;
   }
-
-  &__logoImage {
-
-  }
-
 }

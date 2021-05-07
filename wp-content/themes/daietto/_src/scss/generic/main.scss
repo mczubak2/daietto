@@ -3,12 +3,13 @@
 }
 
 html {
+  font-family: $fMain;
   font-size: 15px;
   line-height: 1;
 }
 
 body {
-  font-family: $f-first;
+  color: $cDark;
   font-weight: 400;
   background-color: $cBackground;
 }
