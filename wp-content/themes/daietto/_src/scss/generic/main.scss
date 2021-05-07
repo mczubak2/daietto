@@ -10,7 +10,7 @@ html {
 body {
   font-family: $f-first;
   font-weight: 400;
-  color: $c-black;
+  background-color: $cBackground;
 }
 
 input[type="search"]::-webkit-search-decoration,

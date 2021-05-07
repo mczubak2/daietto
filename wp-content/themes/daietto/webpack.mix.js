@@ -10,19 +10,19 @@ mix.options({
 
 mix.js(
   [
-    '_dev/js/vue/App.js',
-    '_dev/js/classes/Core.js',
+    '_src/js/vue/App.js',
+    '_src/js/classes/Core.js',
   ],
   'public/build/js/scripts.js',
 ).vue({ version: 2 });
 
 mix.sass(
-  '_dev/scss/core.scss',
+  '_src/scss/core.scss',
   'public/build/css/styles.css',
 );
 
 mix.sass(
-  '_dev/admin-scss/core.scss',
+  '_src/admin-scss/core.scss',
   'public/build/css/admin.css',
 );
 
@@ -55,8 +55,8 @@ mix.webpackConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '_dev/js/vue/'),
-      '~': path.resolve(__dirname, '_dev/js/classes/'),
+      '@': path.resolve(__dirname, '_src/js/vue/'),
+      '~': path.resolve(__dirname, '_src/js/classes/'),
     },
   },
 });

@@ -24,33 +24,33 @@
   Example:
 
     input {
-      color: $c-black;
+      color: $cBlack;
 
       @include placeholder() {
-        color: $c-black;
+        color: $cBlack;
       }
     }
 
   Result:
 
     input {
-      color: $c-black;
+      color: $cBlack;
     }
 
     input::-webkit-input-placeholder {
-      color: $c-black;
+      color: $cBlack;
     }
 
     input::-moz-placeholder {
-      color: $c-black;
+      color: $cBlack;
     }
 
     input:-ms-input-placeholder {
-      color: $c-black;
+      color: $cBlack;
     }
 
     input:-moz-placeholder {
-      color: $c-black;
+      color: $cBlack;
     }
 
 */
