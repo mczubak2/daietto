@@ -2,7 +2,7 @@
   include_once(__DIR__ . DIRECTORY_SEPARATOR . 'includes/core.php');
 ?>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
 
   <meta charset="<?php bloginfo('charset'); ?>">

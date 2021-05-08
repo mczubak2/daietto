@@ -2,22 +2,32 @@ export default class Header
 {
   constructor()
   {
-    if (!this.setVars()) return;
-    this.setEvents();
+    this.setVars()
+    this.setEvents()
   }
 
   setVars()
   {
-    this.selectors = {
-      header: document.querySelector('[data-header]')
-    }
-    if (!this.selectors.header) return;
+    this.header = document.querySelector('.header')
+    if (!this.header) return
 
     return true;
   }
 
   setEvents()
   {
+    document.addEventListener('scroll', () => this.headerSticky())
+  }
 
+  headerSticky()
+  {
+    let scrollTop = window.pageYOffset;
+    console.log(scrollTop)
+    
+    if (scrollTop > 0) 
+    this.header.classList.add('header--sticky')
+
+    else 
+    this.header.classList.remove('header--sticky')
   }
 }
