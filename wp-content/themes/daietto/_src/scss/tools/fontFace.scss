@@ -8,8 +8,7 @@
 
       @font-face {
         font-family: $family;
-        src:
-          url('#{$url}#{$prefix}-#{(map-get($font, 'name'))}.ttf') format('truetype');
+        src: url('#{$url}#{$prefix}-#{(map-get($font, 'name'))}.ttf') format('truetype');
         font-weight: #{(map-get($font, 'weight'))};
         font-style: #{(map-get($font, 'style'))};
       }
@@ -19,12 +18,10 @@
 
     @font-face {
       font-family: $family;
-      src:
-        url('#{$url}#{$prefix}-#{map-get($fonts, 'name')}.ttf') format('truetype');
+      src: url('#{$url}#{$prefix}-#{map-get($fonts, 'name')}.ttf') format('truetype');
       font-weight: #{map-get($fonts, 'weight')};
       font-style: #{map-get($fonts, 'style')};
     }
-
   }
 }
 
