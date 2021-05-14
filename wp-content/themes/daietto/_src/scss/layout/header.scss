@@ -6,6 +6,8 @@
   left: 0;
   width: 100%;
   transition: $tr;
+  background-color: $cBackground;
+  z-index: 200;
 
   &--sticky {
     background-color: rgba($cWhite, $alpha: 1);
