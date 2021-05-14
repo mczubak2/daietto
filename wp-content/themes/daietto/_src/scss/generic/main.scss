@@ -4,7 +4,7 @@
 
 html {
   font-family: $fMain;
-  font-size: 15px;
+  font-size: 10px;
   line-height: 1;
 }
 
@@ -28,4 +28,23 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .p {
   color: $cGray;
+  font-size: 1.6rem;
+  line-height: 1.3;
+
+  &--large {
+    font-size: 1.8rem;
+  }
+}
+
+.h {
+  font-size: 4rem;
+  font-weight: 700;
+
+  &--large {
+    font-size: 5rem;
+  }
+
+  &--light {
+    color: $cLight;
+  }
 }

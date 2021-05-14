@@ -7,13 +7,13 @@
       <div class="hero__content">
         <div class="hero__line"></div>
         <div class="hero__intro">
-          <p class="hero__introContent p">
+          <p class="p p--large">
             <?= $items['intro'] ?>
           </p>
         </div>
         <div class="hero__title">
-          <h2 class="hero__titleContent">
-            <span class="hero__titleSpan">
+          <h2 class="h h--large">
+            <span class="h--light">
               <?= $items['title']['highlighted'] ?>
             </span>
             <?= $items['title']['content'] ?>
@@ -23,6 +23,12 @@
           <p class="hero__descriptionContent p">
             <?= $items['description'] ?>
           </p>
+        </div>
+        <div class="hero__buttons">
+          <button class="hero__button"><?= $items['button'] ?></button>
+          <div class="hero__devices">
+
+          </div>
         </div>
       </div>
     </div>

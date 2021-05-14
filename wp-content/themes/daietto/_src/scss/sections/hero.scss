@@ -2,8 +2,7 @@
   margin-top: 100px;
 
   &__inner {
-
-    
+    display: flex;
   }
 
   &__line {
@@ -14,4 +13,16 @@
     background-color: $cDark;
   }
 
+  &__intro {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    max-width: 420px;
+  }
 }
