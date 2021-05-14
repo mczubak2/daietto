@@ -9,10 +9,10 @@ html {
 }
 
 body {
+  height: 200vh;
+  background-color: $cBackground;
   color: $cDark;
   font-weight: 400;
-  background-color: $cBackground;
-  height: 200vh;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -24,4 +24,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 ::placeholder {
   opacity: 1;
+}
+
+.p {
+  color: $cGray;
 }
