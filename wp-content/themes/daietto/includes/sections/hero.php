@@ -1,6 +1,8 @@
 <?php 
   $items = get_field('hero_content');
+  $cards = get_field('hero_cards');
 ?>
+
 <div class="hero">
   <div class="container">
     <div class="hero__inner">
@@ -25,11 +27,18 @@
           </p>
         </div>
         <div class="hero__buttons">
-          <button class="hero__button"><?= $items['button'] ?></button>
+          <button class="hero__button">
+            <?= $items['button'] ?>
+          </button>
           <div class="hero__devices">
 
           </div>
         </div>
+      </div>
+      <div class="hero__cards" data-vue-component>
+        <v-cards
+          :cards="<?=json_encode($cards['first_card']['image']['url'])?>"
+        ></v-cards>
       </div>
     </div>
   </div>

@@ -22,7 +22,6 @@ export default class Header
   headerSticky()
   {
     let scrollTop = window.pageYOffset;
-    console.log(scrollTop)
     
     if (scrollTop > 0) 
     this.header.classList.add('header--sticky')
