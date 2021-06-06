@@ -1,0 +1,45 @@
+.cloudSmall {
+  position: absolute;
+  top: 40px;
+  left: 250px;
+  z-index: 1000;
+  box-shadow: 0 0 50px 10px rgba($cDark, .2);
+  
+  &__inner {
+    min-width: 322px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: $cWhite;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__property {
+    padding: 5px;
+  }
+
+  &__value {
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align: center;
+
+    &--calories {
+      color: $cRed;
+    }
+  }
+
+  &__category {
+    margin-top: 7px;
+    font-size: .7rem;
+    text-align: center;
+  }
+}

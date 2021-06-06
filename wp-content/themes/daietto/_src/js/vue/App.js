@@ -2,7 +2,6 @@ import Vue from 'vue';
 import CloudSmall from '@/Cloud/CloudSmall.vue';
 import CloudBig from '@/Cloud/CloudBig.vue';
 
-Vue.component('v-example', Example);
 Vue.component('v-cloud-small', CloudSmall);
 Vue.component('v-cloud-big', CloudBig);
 

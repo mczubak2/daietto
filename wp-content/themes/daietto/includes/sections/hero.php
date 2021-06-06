@@ -35,10 +35,27 @@
           </div>
         </div>
       </div>
-      <div class="hero__cards" data-vue-component>
-        <v-cards
-          :cards="<?=json_encode($cards['first_card']['image']['url'])?>"
-        ></v-cards>
+      <div class="hero__cards">
+        <div class="hero__card">
+          <div class="hero__cardInner">
+            <img src="<?= $cards['first']['image']['url'] ?>">
+          </div>
+          <div class="hero__cloudSmall" data-vue-component>
+            <v-cloud-small
+              :cloud='<?= json_encode($cards['first']['colud']); ?>'
+            ></v-cloud-small>
+          </div>
+        </div>
+        <div class="hero__card">
+          <div class="hero__cardInner">
+            <img src="<?= $cards['second']['image']['url'] ?>">
+          </div>
+          <div class="hero__cloudBig" data-vue-component>
+            <v-cloud-big
+              :cloud='<?= json_encode($cards['second']['colud']); ?>'
+            ></v-cloud-big>
+          </div>
+        </div>
       </div>
     </div>
   </div>
