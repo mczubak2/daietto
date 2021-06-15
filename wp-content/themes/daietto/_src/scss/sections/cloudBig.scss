@@ -1,0 +1,59 @@
+.cloudBig {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+
+  &__inner {
+    min-width: 322px;
+    padding: 20px 30px;
+    box-shadow: 0 0 25px 10px rgba($cDark, .2);
+    border-radius: 10px;
+    background-color: $cWhite;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__property {
+    padding: 5px;
+  }
+
+  &__value {
+    min-width: 50px;
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align: center;
+
+    &--calories {
+      color: $cRed;
+    }
+  }
+
+  &__category {
+    margin-top: 7px;
+    font-size: .7rem;
+    text-align: center;
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__footerLink {
+    color: $cLight;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

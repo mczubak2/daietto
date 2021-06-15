@@ -56,6 +56,9 @@
             ></v-cloud-big>
           </div>
         </div>
+        <div class="hero__backgroundElement">
+          <img class="hero__backgroundElementImage" src="<?= THEME_URL . '/assets/images/background_element.png' ?>">
+        </div>
       </div>
     </div>
   </div>
