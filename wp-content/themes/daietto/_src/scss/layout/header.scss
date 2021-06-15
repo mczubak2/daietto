@@ -6,12 +6,11 @@
   left: 0;
   width: 100%;
   transition: $tr;
-  background-color: $cBackground;
+  background-color: transparent;
   z-index: 200;
 
   &--sticky {
     background-color: rgba($cWhite, $alpha: 1);
-    // box-shadow: 0 0 20px 2px rgba($cGray, .2);
 
     #{$root}__inner {
       height: 70px;

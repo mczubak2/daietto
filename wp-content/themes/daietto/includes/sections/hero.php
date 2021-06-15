@@ -37,7 +37,7 @@
       </div>
       <div class="hero__cards">
         <div class="hero__card">
-          <div class="hero__cardInner">
+          <div class="hero__cardInner hero__cardInner--circle">
             <img src="<?= $cards['first']['image']['url'] ?>">
           </div>
           <div class="hero__cloudSmall" data-vue-component>
