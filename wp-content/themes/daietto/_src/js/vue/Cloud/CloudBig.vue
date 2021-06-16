@@ -6,13 +6,20 @@
         <div class="cloudBig__results">
           <div class="cloudBig__title">{{cloud.title}}</div>
           <ul class="cloudBig__properties">
-            <li class="cloudBig__property"
-            v-for="( item, index ) in cloud.properties"
-            :key="item.category">
-              <div class="cloudBig__value"
-                :class="{ 'cloudBig__value--calories': !item.unit }">{{ values[index] }}{{ item.unit }}</div>
+            <li class="cloudBig__property">
               <div class="cloudBig__category">
-                {{ item.category }}
+                {{ cloud.properties.lost.title }}
+              </div>
+              <div class="cloudBig__value">
+                {{ cloud.properties.lost.value }} {{ cloud.properties.lost.unit }}
+              </div>
+            </li>
+            <li class="cloudBig__property">
+              <div class="cloudBig__category">
+                {{ cloud.properties.level.title }}
+              </div>
+              <div class="cloudBig__value">
+                level {{ cloud.properties.level.value }} 
               </div>
             </li>
           </ul>
@@ -53,7 +60,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
