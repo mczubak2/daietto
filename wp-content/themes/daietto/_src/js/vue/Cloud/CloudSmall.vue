@@ -1,21 +1,24 @@
 <template>
-  <div class="cloudSmall"
-    :key="componentKey">
-    <div class="cloudSmall__inner">
-      <div class="cloudSmall__title">{{cloud.title}}</div>
-      <ul class="cloudSmall__properties">
-        <li class="cloudSmall__property"
-        v-for="( item, index ) in cloud.properties"
-        :key="item.category">
-          <div class="cloudSmall__value"
-            :class="{ 'cloudSmall__value--calories': !item.unit }">{{ values[index] }}{{ item.unit }}</div>
-          <div class="cloudSmall__category">
-            {{ item.category }}
-          </div>
-        </li>
-      </ul>
+  <transition name="fadeSlide">
+    <div class="cloudSmall"
+      v-if="show">
+      <div class="cloudSmall__inner">
+        <div class="cloudSmall__title">{{cloud.title}}</div>
+        <ul class="cloudSmall__properties"
+          :key="componentKey">
+          <li class="cloudSmall__property"
+          v-for="( item, index ) in cloud.properties"
+          :key="item.category">
+            <div class="cloudSmall__value"
+              :class="{ 'cloudSmall__value--calories': !item.unit }">{{ values[index] }}{{ item.unit }}</div>
+            <div class="cloudSmall__category">
+              {{ item.category }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -60,10 +63,19 @@ export default {
 
       interval = setInterval(count, 10);
     })
-  }
+  },
+  mounted() {
+    this.show = true;
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-
+.fadeSlide-enter-active, .fadeSlide-leave-active {
+  transition: .5s;
+}
+.fadeSlide-enter, .fadeSlide-leave-to {
+  opacity: 0;
+  left: 100%
+}
 </style>

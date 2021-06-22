@@ -2,6 +2,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translateY(-50%);
   z-index: 1000;
 
   &__inner {
@@ -13,6 +14,7 @@
   }
 
   &__title {
+    margin-bottom: 10px;
     font-size: 1.6rem;
     font-weight: 600;
     text-align: center;
@@ -20,8 +22,8 @@
 
   &__content {
     display: flex;
-    padding-top: 20px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
 
   &__results {
@@ -60,7 +62,25 @@
   }
 
   &__circle {
+    display: grid;
+    position: relative;
     flex: 2;
+    place-items: center;
+  }
+
+  &__circleChart {
+    width: 70px;
+    height: 70px;
+    margin: 20px;
+  }
+
+  &__circleContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    font-weight: 600;
   }
 
   &__footer {

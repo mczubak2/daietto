@@ -1,5 +1,6 @@
 import Footer from './site/Footer';
 import Header from './site/Header';
+import ProgressCircle from './sections/ProgressCircle';
 
 
 class Core
@@ -8,6 +9,7 @@ class Core
   {
     new Footer();
     new Header();
+    new ProgressCircle();
   }
 }
 

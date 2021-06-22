@@ -38,7 +38,7 @@
       <div class="hero__cards">
         <div class="hero__card">
           <div class="hero__cardInner hero__cardInner--circle">
-            <img src="<?= $cards['first']['image']['url'] ?>">
+            <img class="hero__cardImage" src="<?= $cards['first']['image']['url'] ?>">
           </div>
           <div class="hero__cloudSmall" data-vue-component>
             <v-cloud-small
@@ -48,7 +48,7 @@
         </div>
         <div class="hero__card">
           <div class="hero__cardInner">
-            <img src="<?= $cards['second']['image']['url'] ?>">
+            <img class="hero__cardImage" src="<?= $cards['second']['image']['url'] ?>">
           </div>
           <div class="hero__cloudBig" data-vue-component>
             <v-cloud-big

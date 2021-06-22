@@ -97,6 +97,11 @@
     }
   }
 
+  &__cardImage {
+    max-width: 100%;
+    min-width: 230px
+  }
+
   &__backgroundElement {
     position: absolute;
     top: -25%;
