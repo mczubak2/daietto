@@ -28,9 +28,14 @@ export default class ProgressCircle
       duration: 1400,
       easing: 'bounce',
       strokeWidth: 5,
-      from: {color: this.colors.start, a:0},
-      to: {color: this.colors.end, a:1},
-      // Set default step function for all animate calls
+      from: {
+        color: this.colors.start, 
+        a: 0
+      },
+      to: {
+        color: this.colors.end, 
+        a:1
+      },
       step: function(state, circle) {
         circle.path.setAttribute('stroke', state.color);
       }
