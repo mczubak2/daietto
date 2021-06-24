@@ -1,9 +1,7 @@
 import Vue from 'vue';
-import CloudSmall from '@/Cloud/CloudSmall.vue';
-import CloudBig from '@/Cloud/CloudBig.vue';
+// import CloudBig from '@/Cloud/CloudBig.vue';
 
-Vue.component('v-cloud-small', CloudSmall);
-Vue.component('v-cloud-big', CloudBig);
+// Vue.component('v-cloud-big', CloudBig);
 
 const ready = (fn) => {
   if (document.attachEvent
