@@ -13,6 +13,14 @@
   &--big {
     top: 40%;
     width: max-content;
+
+    @include rwd ('ultra') {
+      left: 30%;
+    }
+
+    @include rwd ('large-laptop') {
+      left: -15%;
+    }
   }
 
   &__inner {

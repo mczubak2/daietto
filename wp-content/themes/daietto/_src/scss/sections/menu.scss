@@ -7,12 +7,9 @@
     font-family: $fMain;
   }
 
-  &__item {
-    padding: 10px 30px;
-  }
-
   &__link {
     display: block;
     height: 100%;
+    padding: 10px 30px;
   }
 }
