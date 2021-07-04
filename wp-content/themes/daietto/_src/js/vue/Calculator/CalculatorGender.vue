@@ -8,7 +8,7 @@
         class="calculator__cardIcon"
         :class="{'calculator__cardIcon--active': !gender}"
         @click="gender = false">
-        👨
+        👦
         <div 
           class="calculator__cardIconCaption">
           male
@@ -19,7 +19,7 @@
         :class="{ 'calculator__cardRadio--checked': gender }"
         @click="gender = !gender"
         v-model="gender"
-        type="radio"> 
+        type="checkbox"> 
       <span 
         class="calculator__cardIcon"
         :class="{'calculator__cardIcon--active': gender}"
@@ -45,7 +45,7 @@ export default {
   name: 'CalculatorGender',
   data() {
     return {
-      gender: true,
+      gender: false,
     }
   },
   methods: {

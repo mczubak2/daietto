@@ -7,6 +7,7 @@
     </h1>
     <div class="calculator__cardContent">
       <input 
+        ref="input"
         class="calculator__cardInput" 
         :class="{'calculator__cardInput--invalid': errorMessage}"
         v-model="weight" 
@@ -55,6 +56,9 @@ export default {
       this.$emit('calculateResult', true);
       this.$emit('weightValue', value);
     }
+  },
+  mounted() {
+    this.$refs.input.focus();
   }
 }
 </script>

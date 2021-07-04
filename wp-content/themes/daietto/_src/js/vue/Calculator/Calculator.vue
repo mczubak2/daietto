@@ -23,13 +23,15 @@
 
             @nextStep="$event ? setNextComponent() : true"
             @prevStep="$event ? setPrevComponent() : true"
+            @backToFirstStep="$event ? setFirstComponent() : true"
+            @calculateResult="$event ? calculateData(data) : true"
 
             @genderValue="data.gender = $event"
             @ageValue="data.age = $event"
             @weightValue="data.weight = $event"
             @heightValue="data.height = $event"
 
-            @calculateResult="$event ? calculateData(data) : true"
+            :dailyCalories="result"
           />
         </keep-alive>
       </transition>
@@ -63,7 +65,8 @@ export default {
         height: null,
         weight: null,
       },
-      errorMessage: ''
+      errorMessage: '',
+      result: 0
     }
   },
   methods: {
@@ -80,8 +83,13 @@ export default {
       let currentIndex = this.components.indexOf(this.currentComponent);
       this.currentComponent = this.components[currentIndex - 1];
     },
-    calculateData(data) {
-      let result;      
+    setFirstComponent() {
+      this.currentComponent = this.components[0];
+    },
+    async calculateData(data) {
+
+      let result;
+      await data;
 
       if (data.gender === null) return this.errorMessage = 'Please confirm gender';
       if (data.age    === null) return this.errorMessage = 'Please complete age field';
@@ -89,15 +97,13 @@ export default {
       if (data.weight === null) return this.errorMessage = 'Please complete wegiht field';
 
       if (data.gender) {
-        result =	655 + (9,6 * data.weight) + (1,8 * data.height) - (4,7 * data.age);
+        result = 655 + (9.6 * data.weight) + (1.8 * data.height) - (4.7 * data.age);
       } else {
-        result = 66 + (13,7 * data.weight) + (5 * data.height) - (6,76 * data.age);
+        result = 66 + (13.7 * data.weight) + (5 * data.height) - (6.76 * data.age);
       }
 
       this.currentComponent = this.components[this.components.length - 1];
-      console.log(result);
-
-      return result;
+      this.result = Math.round(result);
     }
   },
   updated() {
@@ -106,7 +112,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
   .fadeSlide-enter-active, .fadeSlide-leave-active {
     transition: .3s;
   }
@@ -114,9 +121,10 @@ export default {
     opacity: 0;
   }
   .fadeSlide-enter {
-    transform: translateX(-30%);
+    transform: translateX(-50%);
   }
   .fadeSlide-leave-to {
-    transform: translateX(30%);
+    transform: translateX(50%);
   }
+  
 </style>

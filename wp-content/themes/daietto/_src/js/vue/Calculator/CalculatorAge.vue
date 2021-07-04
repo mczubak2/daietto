@@ -7,6 +7,7 @@
     </h1>
     <div class="calculator__cardContent">
       <input
+        ref="input"
         class="calculator__cardInput"
         :class="{'calculator__cardInput--invalid': errorMessage}"
         v-model="age" 
@@ -57,6 +58,9 @@ export default {
       this.$emit('nextStep', true);
       this.$emit('ageValue', value);
     }
+  },
+  mounted() {
+    this.$refs.input.focus();
   }
 }
 </script>
