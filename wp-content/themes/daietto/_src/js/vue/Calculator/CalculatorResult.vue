@@ -4,13 +4,13 @@
       v-if="dailyCalories" 
       class="calculator__cardResult">
       <h1 class="calculator__cardTitle">
-        Your calculated needs.
+        You need calories per day.
       </h1>
       <div class="calculator__cardCalories">
         {{ dailyCalories }}cal
       </div>
       <h1 class="calculator__cardTitle calculator__cardTitle--footer">
-        Thank you for using our calculator!
+        Thank you for using our calculator! <span class="calculator__cardTitleIcon">🖐</span>
       </h1>
     </div>
     <div 

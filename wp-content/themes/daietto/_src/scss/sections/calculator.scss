@@ -1,5 +1,6 @@
 .calculator {
   $root: &;
+  height: 100vh;
 
   &__inner {
     display: flex;
@@ -100,15 +101,15 @@
   }
 
   &__card {
-    max-width: 400px;
+    max-width: 600px;
     padding: 30px 80px;
     border-radius: 30px;
     background-color: $cWhite;
     box-shadow: 5px 5px 15px 5px rgba($cBlack, .16);
 
     &--shake {
-      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
       transform: translate3d(0, 0, 0);
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     }
   }
   
@@ -128,6 +129,16 @@
 
     &--lessSpace {
       margin-bottom: 20px;
+    }
+  }
+
+  &__cardTitleIcon {
+    display: inline-block;
+    margin-left: 5px;
+
+    img {
+      width: 1.8em !important;
+      height: 1.8em !important;
     }
   }
 
@@ -187,13 +198,14 @@
       transform: translate(-50%, -50%);
       transition: $tr;
       border-radius: 10px;
-      background-color: $cDark;
+      background-color: rgb(63, 93, 226);
       content: '';
     }
 
     &--checked {
       &::after {
         left: 75%;
+        background-color: $cRed;
       }
     }
   }
