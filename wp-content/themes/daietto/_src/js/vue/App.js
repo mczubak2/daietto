@@ -1,7 +1,12 @@
 import Vue from 'vue';
-// import CloudBig from '@/Cloud/CloudBig.vue';
 
-// Vue.component('v-cloud-big', CloudBig);
+import Calculator from '@/Calculator/Calculator.vue';
+import CalculatorGender from '@/Calculator/CalculatorGender.vue';
+import CalculatorAge from '@/Calculator/CalculatorAge.vue';
+import CalculatorHeight from '@/Calculator/CalculatorHeight.vue';
+import CalculatorWeight from '@/Calculator/CalculatorWeight.vue';
+
+Vue.component('v-calculator', Calculator);
 
 const ready = (fn) => {
   if (document.attachEvent
