@@ -2,7 +2,10 @@
   <ul class="menu__list">
     <?php foreach ($args as $item): ?>
       <li class="menu__item<?= $item['active'] ? ' menu__item--active' : '' ?>">
-        <a href="<?= $item['url'] ?>" class="menu__link p"><?= $item['name'] ?></a>
+        <a 
+          href="<?= $item['url'] ?>" 
+          class="menu__link p"
+          data-text="<?= $item['name'] ?>"><?= $item['name'] ?></a>
       </li>
     <?php endforeach; ?>
   </ul>
