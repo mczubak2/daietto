@@ -1,10 +1,10 @@
-<div class="calculator">
+<section class="calculator">
   <div class="container">
     <div class="calculator__inner" data-vue-component>
       <v-calculator
         :header-text='<?= json_encode($section['header']) ?>'
-        :gender-content='<?= json_encode($section['steps']['gender']) ?>'
         :age-content='<?= json_encode($section['steps']['age']) ?>'
+        :gender-content='<?= json_encode($section['steps']['gender']) ?>'
         :height-content='<?= json_encode($section['steps']['height']) ?>'
         :weight-content='<?= json_encode($section['steps']['weight']) ?>'
         :result-content='<?= json_encode($section['steps']['result']) ?>'
@@ -14,4 +14,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>
