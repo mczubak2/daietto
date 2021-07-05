@@ -42,11 +42,18 @@
   &__button {
     width: 278px;
     height: 60px;
+    transition: $tr;
+    border: 3px solid $cDark;
     border-radius: 10px;
     background-color: $cDark;
     color: $cWhite;
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $cWhite;
+      color: $cDark;
+    }
   }
 
 

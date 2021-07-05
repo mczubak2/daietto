@@ -1,16 +1,14 @@
 <template>
   <div class="calculator__component">
     <h1 class="calculator__header">
-      Easily count your daily caloric needs.
+      {{headerText}}
     </h1>
     <div class="calculator__timeline"
       :style="{'--timelineProgress': `${timelineProgress}%`}">
-      <div 
+      <div v-for="( item, index ) in components" :key="index"
         class="calculator__timelineStep"
-        v-for="( item, index ) in components"
-        @click="currentComponent = components[index]"
-        :key="index"
-        :class="{'calculator__timelineStep--active': index <= components.indexOf(currentComponent)}">
+        :class="{'calculator__timelineStep--active': index <= components.indexOf(currentComponent)}"
+        @click="currentComponent = components[index]">
       </div>
     </div>
     <div class="calculator__content">
@@ -18,8 +16,7 @@
         name="fadeSlide"
         mode="out-in">
         <keep-alive>
-          <component 
-            :is="currentComponent"
+          <component :is="currentComponent"
 
             @nextStep="$event ? setNextComponent() : true"
             @prevStep="$event ? setPrevComponent() : true"
@@ -32,6 +29,12 @@
             @heightValue="data.height = $event"
 
             :dailyCalories="result"
+            
+            :ageContent="ageContent"
+            :genderContent="genderContent"
+            :heightContent="heightContent"
+            :weightContent="weightContent"
+            :resultContent="resultContent"
           />
         </keep-alive>
       </transition>
@@ -48,6 +51,32 @@ import CalculatorResult from './CalculatorResult';
 
 export default {
   name: 'Calculator',
+  props: {
+    headerText: {
+      type: String,
+      required: true
+    },
+    genderContent: {
+      type: Object,
+      required: true
+    },
+    ageContent: {
+      type: Object,
+      required: true
+    },
+    heightContent: {
+      type: Object,
+      required: true
+    },
+    weightContent: {
+      type: Object,
+      required: true
+    },
+    resultContent: {
+      type: Object,
+      required: true
+    },
+  },
   data() {
     return {
       currentComponent: CalculatorGender,
@@ -66,7 +95,7 @@ export default {
         weight: null,
       },
       errorMessage: '',
-      result: 0
+      result: 0,
     }
   },
   methods: {
@@ -108,7 +137,7 @@ export default {
   },
   updated() {
     this.setTimelineProgress();
-  }
+  },
 }
 </script>
 

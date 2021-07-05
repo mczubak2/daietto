@@ -3,7 +3,7 @@
     class="calculator__card"
     :class="{'calculator__card--shake': shake}">
     <h1 class="calculator__cardTitle">
-      Type your age.
+      {{ ageContent.header }}
     </h1>
     <div class="calculator__cardContent">
       <input
@@ -14,15 +14,11 @@
         type="text"> 
       <p class="calculator__cardErrorMessage">{{ errorMessage }}</p>
     </div>
-    <button 
-      class="calculator__cardButton"
-      @click="sendData(age)">
-      next
+    <button class="calculator__cardButton" @click="sendData(age)">
+      {{ ageContent.button }}
     </button>
-    <button 
-      class="calculator__cardLink"
-      @click="$emit('prevStep', true)">
-      previous
+    <button class="calculator__cardLink" @click="$emit('prevStep', true)">
+      {{ ageContent.link }}
     </button>
   </div>
 </template>
@@ -30,6 +26,12 @@
 <script>
 export default {
   name: 'CalculatorAge',
+  props: {
+    ageContent: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       age: '',

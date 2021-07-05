@@ -4,20 +4,20 @@
       v-if="dailyCalories" 
       class="calculator__cardResult">
       <h1 class="calculator__cardTitle">
-        You need calories per day.
+        {{ resultContent.header }}
       </h1>
       <div class="calculator__cardCalories">
-        {{ dailyCalories }}cal
+        {{ dailyCalories }}{{ resultContent.unit }}
       </div>
       <h1 class="calculator__cardTitle calculator__cardTitle--footer">
-        Thank you for using our calculator! <span class="calculator__cardTitleIcon">🖐</span>
+        {{ resultContent.footer }} <span class="calculator__cardTitleIcon">🖐</span>
       </h1>
     </div>
     <div 
       v-else 
       class="calculator__cardNotReady">
       <h1 class="calculator__cardTitle calculator__cardTitle--lessSpace">
-        Please provide your data to fields...
+        {{ resultContent.empty }}
       </h1>
       <span 
         @click="$emit('backToFirstStep', true)"
@@ -32,10 +32,14 @@
 export default {
   name: 'CalculatorResult',
   props: {
+    resultContent: {
+      type: Object,
+      required: true
+    },
     dailyCalories: {
       type: Number,
       required: true
-    }
+    },
   },
   data() {
     return {

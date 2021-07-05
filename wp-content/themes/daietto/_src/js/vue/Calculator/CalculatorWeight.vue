@@ -3,7 +3,7 @@
     class="calculator__card"
     :class="{'calculator__card--shake': shake}">
     <h1 class="calculator__cardTitle">
-      Your weight.
+      {{ weightContent.header }}
     </h1>
     <div class="calculator__cardContent">
       <input 
@@ -13,15 +13,11 @@
         v-model="weight" 
         type="text"> 
     </div>
-    <button 
-      class="calculator__cardButton"
-      @click="sendData(weight)">
-      calculate
+    <button @click="sendData(weight)" class="calculator__cardButton">
+      {{ weightContent.button }}
     </button>
-    <button 
-      class="calculator__cardLink"
-      @click="$emit('prevStep', true)">
-      previous
+    <button class="calculator__cardLink">
+      {{ weightContent.link }}
     </button>
   </div>
 </template>
@@ -29,6 +25,12 @@
 <script>
 export default {
   name: 'CalculatorWeight',
+  props: {
+    weightContent: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       weight: '',

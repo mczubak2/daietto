@@ -1,7 +1,7 @@
 <template>
   <div class="calculator__card">
     <h1 class="calculator__cardTitle">
-      Choose your gender.
+      {{ genderContent.header }}
     </h1>
     <div class="calculator__cardContent">
       <span 
@@ -11,7 +11,7 @@
         👦
         <div 
           class="calculator__cardIconCaption">
-          male
+          {{ genderContent.man }}
         </div>
       </span>
       <input 
@@ -27,7 +27,7 @@
         👩
         <div 
           class="calculator__cardIconCaption">
-          female
+          {{ genderContent.woman }}
         </div>
       </span>
     </div>
@@ -35,7 +35,7 @@
     <button 
       class="calculator__cardButton"
       @click="sendData(gender)">
-      next
+      {{ genderContent.button }}
     </button>
   </div>
 </template>
@@ -43,6 +43,12 @@
 <script>
 export default {
   name: 'CalculatorGender',
+  props: {
+    genderContent: {
+      type: Object,
+      require: true
+    }
+  },
   data() {
     return {
       gender: false,

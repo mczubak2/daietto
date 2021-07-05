@@ -3,7 +3,7 @@
     class="calculator__card"
     :class="{'calculator__card--shake': shake}">
     <h1 class="calculator__cardTitle">
-      Your height.
+      {{ heightContent.header }}
     </h1>
     <div class="calculator__cardContent">
       <input 
@@ -17,12 +17,12 @@
     <button 
       class="calculator__cardButton"
       @click="sendData(height)">
-      next
+      {{ heightContent.button }}
     </button>
     <button 
       class="calculator__cardLink"
       @click="$emit('prevStep', true)">
-      previous
+      {{ heightContent.link }}
     </button>
   </div>
 </template>
@@ -30,6 +30,12 @@
 <script>
 export default {
   name: 'CalculatorHeight',
+  props: {
+    heightContent: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       height: '',
