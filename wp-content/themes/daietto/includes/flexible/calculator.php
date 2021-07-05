@@ -9,6 +9,9 @@
         :weight-content='<?= json_encode($section['steps']['weight']) ?>'
         :result-content='<?= json_encode($section['steps']['result']) ?>'
       ></v-calculator>
+      <div class="calculator__background">
+        <img class="calculator__backgroundItem" src="<?= THEME_URL . '/assets/images/background_element.png' ?>">
+      </div>
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@
 
   &__inner {
     display: flex;
+    position: relative;
     justify-content: center;
     padding: 70px 0;
   }
@@ -281,6 +282,15 @@
     color: $cLight;
     font-size: 3rem;
     font-weight: 700;
+  }
+
+  &__background {
+    position: absolute;
+    right: 70%;
+    bottom: -25%;
+    width: 100%;
+    transform-origin: right;
+    z-index: -200;
   }
 
   @keyframes shake {
