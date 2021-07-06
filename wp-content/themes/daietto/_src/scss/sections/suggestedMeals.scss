@@ -1,5 +1,18 @@
 .suggestedMeals {
   $root: &;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    transform: translate(75%, -50%);
+    border-radius: 300px;
+    background-color: $cLime;
+    content: '';
+  }
 
   &__inner {
     display: flex;
@@ -61,6 +74,7 @@
   }
 
   &__mealTitle {
+    margin-bottom: 20px;
     font-size: 2.5rem;
     font-weight: 700;
   }
@@ -85,6 +99,30 @@
         transform: rotate(180deg);
       }
     }
+  }
+
+  &__macronutrients {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  &__macronutrient {
+    text-align: center;
+  }
+
+  &__macronutrientValue {
+    margin-bottom: 5px;
+    font-size: 2rem;
+    font-weight: 700;
+
+    &--red {
+      color: $cRed;
+    }
+  }
+
+  &__macronutrientName {
+    color: $cGray;
   }
 
   &__content {
