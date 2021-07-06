@@ -1,7 +1,7 @@
 <template>
   <div
     class="calculator__card"
-    :class="{'calculator__card--shake': shake}">
+    :class="{'calculator__card--shake': shake}" @animationend="shake = false">
     <h1 class="calculator__cardTitle">
       {{ heightContent.header }}
     </h1>
@@ -53,10 +53,7 @@ export default {
         if (!Number.isInteger(value)) this.errorMessage = 'Please type a number';
         if (value < 50 || value > 250) this.errorMessage = "I don't belive you";
 
-        this.shake = true;
-        setTimeout(() => this.shake = false , 1000);
-
-        return
+        return this.shake = true;
       } 
 
       this.errorMessage = '';
