@@ -4,6 +4,7 @@
   left: 50%;
   width: max-content;
   z-index: 1000;
+  animation: show $tr-m $tr 1 both ease;
 
   &--small {
     top: 5%;
@@ -118,6 +119,17 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  @keyframes show {
+    from {
+      transform: translateX(20%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }
