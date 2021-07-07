@@ -34,6 +34,7 @@
     max-width: 220px;
     height: 340px;
     padding: 20px;
+    transition: $tr;
     border-radius: 200px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -44,6 +45,29 @@
       margin-top: 100px;
       margin-left: 75px;
     }
+
+    &:hover {
+      box-shadow: 22px 24px 32px -4px rgba($cAdditional, .4);
+      #{$root}__mealPlate {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__mealLinkCircle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    transform: translate(25%, 25%);
+    border-radius: 50px;
+    background-color: $cDark;
+    color: $cWhite;
+    font-size: 2rem;
+    z-index: 10;
+
+
   }
 
   &__mealPlate {
@@ -83,35 +107,17 @@
     font-weight: 700;
   }
 
-  &__mealButton {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 60px;
-    height: 60px;
-    transform: translate(25%, 25%);
-    border-radius: 50px;
-    background-color: $cDark;
-    color: $cWhite;
-    font-size: 2rem;
-    z-index: 10;
-    
-    #{$root}__mealPlate {
-      transform: rotate(180deg);
-    }
-  }
-
-  &__mealMacronutrients {
+  &__mealMacros {
     display: flex;
     justify-content: space-between;
     width: 60%;
   }
 
-  &__mealMacronutrient {
+  &__mealMacro {
     text-align: center;
   }
 
-  &__mealMacronutrientValue {
+  &__mealMacroValue {
     margin-bottom: 5px;
     font-size: 2rem;
     font-weight: 700;
@@ -121,7 +127,7 @@
     }
   }
 
-  &__mealMacronutrientName {
+  &__mealMacroName {
     color: $cGray;
   }
 

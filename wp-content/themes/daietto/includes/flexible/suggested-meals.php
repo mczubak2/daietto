@@ -14,23 +14,25 @@
               <image class="suggestedMeals__mealPlateImage" src="<?= $image['url'] ?>"></image>
             </div>
             <h3 class="suggestedMeals__mealTitle"><?= $title ?></h3>
-            <div class="suggestedMeals__mealMacronutrients">
+            <div class="suggestedMeals__mealMacros">
               <?php foreach ($macro as $key => $item): ?>
                 <?php if ($key == 'calories'): ?>
-                  <div class="suggestedMeals__mealMacronutrient">
-                    <p class="suggestedMeals__mealMacronutrientValue suggestedMeals__mealMacronutrientValue--red"><?= $item ?></p>
-                    <p class="suggestedMeals__mealMacronutrientName"><?= $section['calories'] ?></p>
+                  <div class="suggestedMeals__mealMacro">
+                    <p class="suggestedMeals__mealMacroValue suggestedMeals__mealMacroValue--red"><?= $item ?></p>
+                    <p class="suggestedMeals__mealMacroName"><?= $section['calories'] ?></p>
                   </div>
                 <?php elseif ($key == 'fat'): ?>
-                  <div class="suggestedMeals__mealMacronutrient">
-                    <p class="suggestedMeals__mealMacronutrientValue"><?= $item . 'g' ?></p>
-                    <p class="suggestedMeals__mealMacronutrientName"><?= $section['fat'] ?></p>
+                  <div class="suggestedMeals__mealMacro">
+                    <p class="suggestedMeals__mealMacroValue"><?= $item . 'g' ?></p>
+                    <p class="suggestedMeals__mealMacroName"><?= $section['fat'] ?></p>
                   </div>
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
-            <a class="suggestedMeals__mealButton" href="<?= get_permalink($id) ?>">
-              <span class="icon-arrow-right"></span>
+            <a class="suggestedMeals__mealLink" href="<?= get_permalink($id) ?>">
+              <div class="suggestedMeals__mealLinkCircle">
+                <span class="icon-arrow-right"></span>
+              </div>
             </a>
           </div>
         <?php endforeach; ?>
