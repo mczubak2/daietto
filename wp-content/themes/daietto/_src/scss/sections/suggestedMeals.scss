@@ -48,26 +48,11 @@
 
     &:hover {
       box-shadow: 22px 24px 32px -4px rgba($cAdditional, .4);
+
       #{$root}__mealPlate {
         transform: rotate(180deg);
       }
     }
-  }
-
-  &__mealLinkCircle {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 60px;
-    height: 60px;
-    transform: translate(25%, 25%);
-    border-radius: 50px;
-    background-color: $cDark;
-    color: $cWhite;
-    font-size: 2rem;
-    z-index: 10;
-
-
   }
 
   &__mealPlate {
@@ -129,6 +114,49 @@
 
   &__mealMacroName {
     color: $cGray;
+  }
+  
+  &__mealLink {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    transform: translate(25%, 25%);
+    border-radius: 50px;
+    color: $cWhite;
+    font-size: 2rem;
+    overflow: hidden;
+    z-index: 10;
+    
+    &:hover {
+      #{$root}__mealLinkIcon {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &__mealLinkIcon {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    float: left;
+    transition: $tr ease;
+
+    &--first {
+      left: -100%;
+      background-color: $cWhite;
+      color: $cDark;
+    }
+
+    &--second {
+      background-color: $cDark;
+    }
   }
 
   &__content {

@@ -30,9 +30,8 @@
               <?php endforeach; ?>
             </div>
             <a class="suggestedMeals__mealLink" href="<?= get_permalink($id) ?>">
-              <div class="suggestedMeals__mealLinkCircle">
-                <span class="icon-arrow-right"></span>
-              </div>
+              <span class="suggestedMeals__mealLinkIcon suggestedMeals__mealLinkIcon--first icon-arrow-right"></span>
+              <span class="suggestedMeals__mealLinkIcon suggestedMeals__mealLinkIcon--second icon-arrow-right"></span>
             </a>
           </div>
         <?php endforeach; ?>
