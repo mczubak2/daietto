@@ -63,9 +63,13 @@
       height: 90%;
       transform: translate(-50%, -50%);
       border-radius: 100px;
-      box-shadow: 0 24px 32px -4px rgba($cAdditional, .5);
+      box-shadow: 0 0 32px -4px rgba($cAdditional, .5);
       content: '';
       z-index: 0;
+    }
+
+    &:hover {
+      transform: rotate(180deg);
     }
   }
 

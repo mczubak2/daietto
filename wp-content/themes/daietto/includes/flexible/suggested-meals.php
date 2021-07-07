@@ -29,7 +29,9 @@
                 <?php endif; ?>
               <?php endforeach; ?>
             </div>
-            <a class="suggestedMeals__mealButton" href="<?= get_permalink($id) ?>"></a>
+            <a class="suggestedMeals__mealButton" href="<?= get_permalink($id) ?>">
+              <span class="icon-arrow-right"></span>
+            </a>
           </div>
 
         <?php endforeach; ?>
