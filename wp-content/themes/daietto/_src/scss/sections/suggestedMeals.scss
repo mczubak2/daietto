@@ -50,7 +50,7 @@
       box-shadow: 22px 24px 32px -4px rgba($cAdditional, .4);
 
       #{$root}__mealPlate {
-        transform: rotate(180deg);
+        transform: scale(1.1) rotate(180deg);
       }
     }
   }
@@ -124,6 +124,7 @@
     height: 60px;
     transform: translate(25%, 25%);
     border-radius: 50px;
+    background-color: $cDark;
     color: $cWhite;
     font-size: 2rem;
     overflow: hidden;
@@ -150,12 +151,6 @@
 
     &--first {
       left: -100%;
-      background-color: $cWhite;
-      color: $cDark;
-    }
-
-    &--second {
-      background-color: $cDark;
     }
   }
 

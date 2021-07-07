@@ -1,15 +1,13 @@
-@import '../../../assets/icomoon/variables';
-@import '../../../assets/icomoon/style.scss';
-
+@import '../../../assets/fonts/icomoon/style.scss';
 
 @font-face {
   font-family: 'icomoon';
-  src: url('../../fonts/icons/icomoon.eot');
+  src: url('../../../assets/fonts/icomoon/fonts/icomoon.eot');
   src:
-    url('../../fonts/icons/icomoon.woff') format('woff'),
-    url('../../fonts/icons/icomoon.eot#iefix') format('embedded-opentype'),
-    url('../../fonts/icons/icomoon.ttf') format('truetype'),
-    url('../../fonts/icons/icomoon.svg#icomoon') format('svg');
+    url('../../../assets/fonts/icomoon/fonts/icomoon.woff') format('woff'),
+    url('../../../assets/fonts/icomoon/fonts/icomoon.eot#iefix') format('embedded-opentype'),
+    url('../../../assets/fonts/icomoon/fonts/icomoon.ttf') format('truetype'),
+    url('../../../assets/fonts/icomoon/fonts/icomoon.svg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
