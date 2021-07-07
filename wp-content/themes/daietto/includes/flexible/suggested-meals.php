@@ -14,17 +14,17 @@
               <image class="suggestedMeals__mealPlateImage" src="<?= $image['url'] ?>"></image>
             </div>
             <h3 class="suggestedMeals__mealTitle"><?= $title ?></h3>
-            <div class="suggestedMeals__macronutrients">
+            <div class="suggestedMeals__mealMacronutrients">
               <?php foreach ($macro as $key => $item): ?>
                 <?php if ($key == 'calories'): ?>
-                  <div class="suggestedMeals__macronutrient">
-                    <p class="suggestedMeals__macronutrientValue suggestedMeals__macronutrientValue--red"><?= $item ?></p>
-                    <p class="suggestedMeals__macronutrientName"><?= $section['calories'] ?></p>
+                  <div class="suggestedMeals__mealMacronutrient">
+                    <p class="suggestedMeals__mealMacronutrientValue suggestedMeals__mealMacronutrientValue--red"><?= $item ?></p>
+                    <p class="suggestedMeals__mealMacronutrientName"><?= $section['calories'] ?></p>
                   </div>
                 <?php elseif ($key == 'fat'): ?>
-                  <div class="suggestedMeals__macronutrient">
-                    <p class="suggestedMeals__macronutrientValue"><?= $item . 'g' ?></p>
-                    <p class="suggestedMeals__macronutrientName"><?= $section['fat'] ?></p>
+                  <div class="suggestedMeals__mealMacronutrient">
+                    <p class="suggestedMeals__mealMacronutrientValue"><?= $item . 'g' ?></p>
+                    <p class="suggestedMeals__mealMacronutrientName"><?= $section['fat'] ?></p>
                   </div>
                 <?php endif; ?>
               <?php endforeach; ?>
@@ -33,7 +33,6 @@
               <span class="icon-arrow-right"></span>
             </a>
           </div>
-
         <?php endforeach; ?>
       </div>
       <div class="suggestedMeals__content">
