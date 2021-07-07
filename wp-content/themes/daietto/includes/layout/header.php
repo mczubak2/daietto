@@ -1,9 +1,3 @@
-<?php 
-
-  $menuItems = apply_filters('getMenuTree', [], 'header_menu');
-  
-?>
-
 <header class="header" data-templ="<?= get_page_template_slug() ?>">
   <div class="container">
     <div class="header__inner">
@@ -14,7 +8,7 @@
         </a>
       </div>
       <div class="header__menu">
-        <?php get_template_part( 'includes/layout/menu', null, $menuItems ); ?>
+        <?php get_template_part( 'includes/layout/menu' ); ?>
       </div>
     </div>
   </div>
