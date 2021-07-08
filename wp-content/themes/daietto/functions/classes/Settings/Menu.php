@@ -14,6 +14,7 @@
     {
       register_nav_menus([
         'header_menu' => __('Header Menu', 'daietto'),
+        'footer_menu' => __('Footer Menu', 'daietto'),
       ]);
     }
 

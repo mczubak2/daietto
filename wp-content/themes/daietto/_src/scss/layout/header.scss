@@ -11,6 +11,7 @@
 
   &--sticky {
     background-color: rgba($cWhite, $alpha: 1);
+    box-shadow: 5px 5px 15px 5px rgba($cAdditional, .16);
 
     #{$root}__inner {
       height: 70px;

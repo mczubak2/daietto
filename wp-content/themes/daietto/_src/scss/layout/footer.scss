@@ -1,0 +1,79 @@
+.footer {
+  $root: &;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 0;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__logo {
+    display: flex;
+    flex: 1;
+  }
+
+  &__logoInner {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+  }
+
+  &__logoTitle {
+    margin-left: 20px;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  &__menu {
+    flex: 2;
+    margin-bottom: 100px;
+  }
+
+  &__menuList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 90px;
+  }
+
+  &__menuItem {
+    width: 50%;
+  }
+  
+  &__menuItemLink {
+    display: block;
+    padding: 5px 10px;
+    transition: $tr;
+    color: $cDarkBlue;
+
+    &:hover {
+      transform: translateX(15px);
+      color: $cLight;
+
+      #{$root}__menuItemIcon {
+        transform: translateX(0);
+        color: $cLight;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__menuItemIcon {
+    display: inline-block;
+    transition: $tr;
+    font-size: 1.3rem;
+    opacity: 0;
+  }
+
+  &__socials {
+    flex: 1;
+  }
+
+  &__rightsText {
+    color: $cDarkBlue;
+  }
+}

@@ -286,11 +286,11 @@
 
   &__background {
     position: absolute;
-    top: 0;
+    top: -200px;
     right: 70%;
     width: 100%;
     transform-origin: right;
-    z-index: -200;
+    z-index: -10;
   }
 
   @keyframes shake {

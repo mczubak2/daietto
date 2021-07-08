@@ -1,8 +1,9 @@
 .hero {
+  height: calc(100vh - 120px);
 
   &__inner {
     display: flex;
-    padding: 70px 0;
+    padding-bottom: 70px;
 
     @include rwd ('large-tablet') {
       flex-direction: column;

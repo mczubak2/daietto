@@ -42,7 +42,7 @@
         'query_var'          => true,
         'rewrite'            => ['slug' => 'meals'],
         'capability_type'    => 'post',
-        'has_archive'        => false,
+        'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
         'menu_icon'          => 'dashicons-food',
