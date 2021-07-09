@@ -106,7 +106,7 @@
         }
       }
 
-      return new \WP_Error('cant-get-' . static::$postTypeSlug . '-posts', __('Can\'t get ' . static::$postTypeName . ' posts', 'survival'), ['status' => 500]);
+      return new \WP_Error('cant-get-' . static::$postTypeSlug . '-posts', __('Can\'t get ' . static::$postTypeName . ' posts', 'daietto'), ['status' => 500]);
     }
 
     /**
