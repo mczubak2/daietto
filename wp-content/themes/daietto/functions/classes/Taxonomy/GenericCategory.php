@@ -11,7 +11,7 @@
 
     public function setColumnsCategory($columns) {
       $columns = array_merge(array_slice($columns, 0, 2, true), [
-        'color' => __('Color', 'survival'),
+        'color' => __('Color', 'daietto'),
       ], array_slice($columns, 2, NULL, true));
 
       return $columns;

@@ -35,6 +35,6 @@
         'rewrite'           => ['slug' => 'optionsgroup'],
       ];
 
-      register_taxonomy('optionsgroup', ['optionspage'], $args);
+      register_taxonomy('optionsgroup', ['options'], $args);
     }
   }
