@@ -20,7 +20,7 @@
         {{ resultContent.empty }}
       </h1>
       <span 
-        @click="$emit('backToFirstStep', true)"
+        @click="$emit('firstStep', true)"
         class="calculator__cardIcon calculator__cardIcon--alone">
         👈
       </span>

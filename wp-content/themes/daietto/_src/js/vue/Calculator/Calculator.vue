@@ -18,9 +18,9 @@
         <keep-alive>
           <component :is="currentComponent"
 
-            @nextStep="$event ? setNextComponent() : true"
-            @prevStep="$event ? setPrevComponent() : true"
-            @backToFirstStep="$event ? setFirstComponent() : true"
+            @nextStep="setNextComponent($event)"
+            @prevStep="setPrevComponent($event)"
+            @firstStep="setFirstComponent($event)"
             @calculateResult="$event ? calculateData(data) : true"
 
             @genderValue="data.gender = $event"
@@ -104,16 +104,20 @@ export default {
       let currentIndex = this.components.indexOf(this.currentComponent);
       this.timelineProgress = stepLength * currentIndex;
     },
-    setNextComponent() {
-      let currentIndex = this.components.indexOf(this.currentComponent);
-      this.currentComponent = this.components[currentIndex + 1];
+    setNextComponent(value) {
+      if (value) {
+        let currentIndex = this.components.indexOf(this.currentComponent);
+        this.currentComponent = this.components[currentIndex + 1];
+      }
     },
-    setPrevComponent() {
-      let currentIndex = this.components.indexOf(this.currentComponent);
-      this.currentComponent = this.components[currentIndex - 1];
+    setPrevComponent(value) {
+      if (value) {
+        let currentIndex = this.components.indexOf(this.currentComponent);
+        this.currentComponent = this.components[currentIndex - 1];
+      }
     },
-    setFirstComponent() {
-      this.currentComponent = this.components[0];
+    setFirstComponent(value) {
+      if (value) this.currentComponent = this.components[0];
     },
     async calculateData(data) {
 
