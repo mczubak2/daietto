@@ -1,7 +1,7 @@
 import Footer from './site/Footer';
 import Header from './site/Header';
 import ProgressCircle from './sections/ProgressCircle';
-
+import Slider from './sections/Slider';
 
 class Core
 {
@@ -10,6 +10,7 @@ class Core
     new Footer();
     new Header();
     new ProgressCircle();
+    new Slider();
   }
 }
 
@@ -23,4 +24,4 @@ const ready = (fn) => {
   }
 };
 
-ready(() => new Core())
+ready(() => new Core());

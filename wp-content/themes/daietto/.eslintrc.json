@@ -29,7 +29,7 @@
     "no-plusplus": "off",
     "no-unused-expressions": "off",
     "padded-blocks": "off",
-    "import/no-unresolved": "off",
+    "import/no-unresolved": "on",
     "import/extensions": "off",
     "quote-props": ["error", "as-needed"],
     "radix": ["error", "as-needed"]

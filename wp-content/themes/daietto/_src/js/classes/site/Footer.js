@@ -4,7 +4,7 @@ export default class Footer
   {
     if (!this.setVars()) return;
 
-    this.setEvents();
+    // this.setEvents();
   }
 
   setVars()
@@ -15,8 +15,8 @@ export default class Footer
     return true;
   }
 
-  setEvents()
-  {
+  // setEvents()
+  // {
 
-  }
+  // }
 }

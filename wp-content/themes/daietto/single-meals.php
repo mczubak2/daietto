@@ -3,6 +3,7 @@
 ?>
 <main class="sections">
   <?php
+    get_template_part('includes/sections/pageHeader');
     get_template_part('includes/flexible/_core');
   ?>
 </main>
