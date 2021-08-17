@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 
 export default class Slider {
   constructor() {
@@ -7,17 +7,26 @@ export default class Slider {
   }
 
   setVars() {
-    this.container = document.querySelector('.swiper-container');
-    if (!this.container) return false;
+    this.selectors = {
+      container:  '.swiper-container',
+      buttonPrev: '.swiper-button-prev',
+      buttonNext: '.swiper-button-next',
+    }
+    if (!this.selectors) return false;
 
     return true;
   }
 
   initSwiper() {
-    const swiper = new Swiper(this.container, {
-      speed: 400,
-      spaceBetween: 100,
+    Swiper.use([Navigation]);
+    this.mySwiper = new Swiper(this.selectors.container, {
+      navigation: {
+        nextEl: this.selectors.buttonNext,
+        prevEl: this.selectors.buttonPrev,
+      },
+      spaceBetween: 0,
+      loop: true,
+      centeredSlides: true,
     });
-    console.log(swiper);
   }
 }

@@ -1,9 +1,117 @@
 .pageHeader {
+  $root: &;
+
   &__inner {
     display: flex;
+    padding-bottom: 70px;
+  }
+
+  &__slider {
+    flex: 1;
+    max-width: 50%;
+    height: calc(60vh - 100px);
+    position: relative;
+    margin-right: 100px;
+  }
+  
+  &__sliderContainer {
+    position: absolute;
+    width: 50vw;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &__sliderSlide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__sliderButtonPrev,
+  &__sliderButtonNext {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    background-color: $cWhite;
+    line-height: 50px;
+    text-align: center;
+    font-size: 1.8rem;
+    transition: $tr-s ease-in-out;
+    color: $cDarkBlue;
+    overflow: hidden;
+
+    #{$root}__sliderButtonIcons {
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cWhite;
+
+      #{$root}__sliderButtonIcons {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__sliderButtonNext {
+    bottom: 50px;
+    background-color: $cDarkBlue;
+  }
+
+  &__sliderButtonPrev {
+    transform: rotate(180deg);
+    background-color: $cDark;
+  }
+
+  &__sliderButtonIcons {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: $tr;
+  }
+
+  &__sliderButtonIcon {
+    line-height: 3;
+    width: 50%;
+
+    &:last-child {
+      color: $cWhite;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__line {
+    width: 62px;
+    height: 8px;
+    margin-bottom: 26px;
+    border-radius: 10px;
+    background-color: $cDark;
   }
 
   &__title {
     margin-bottom: 50px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 62px;
+      height: 8px;
+      margin-bottom: 26px;
+      border-radius: 10px;
+      background-color: $cLight;
+    }
+  }
+
+  &__description {
+    line-height: 1.75;
   }
 }

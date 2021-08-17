@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header__inner">
       <div class="header__logo">
-        <a href="" class="header__link">
+        <a href="<?= get_home_url() ?>" class="header__link">
           <img src="<?= THEME_URL . 'assets/images/logo.png' ?>" alt="<?= get_bloginfo('name'); ?>" class="header__image">
           <h1 class="header__title"><?= get_bloginfo('name'); ?></h1>
         </a>
