@@ -1,0 +1,27 @@
+.macronutrients {
+  
+  &__inner {
+    padding: 70px 0;
+  }
+
+  &__case {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+    transition: $tr;
+    border-radius: 200px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: $cBackground;
+    box-shadow: 22px 24px 32px -4px rgba($cAdditional, .2);
+  }
+
+  &__macros {
+    padding: 20px;
+  }
+
+  &__image {
+    
+  }
+}
