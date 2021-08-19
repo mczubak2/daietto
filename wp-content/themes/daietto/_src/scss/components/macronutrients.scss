@@ -1,0 +1,58 @@
+.macronutrients {
+  flex: 1;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    transition: $tr;
+    border-radius: 200px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: $cBackground;
+    box-shadow: 1px 11px 32px -4px rgba($cAdditional, .2);
+  }
+
+  &__macros {
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    padding-right: 50px;
+  }
+
+  &__macrosList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px 0px;
+  }
+
+  &__macrosItem {
+    border-bottom: 1px solid rgba($cAdditional, .3);
+
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      border-bottom: none
+    }
+
+    &--name {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: $cGray;
+      padding-right: 20px;
+      border-right: 1px solid rgba($cAdditional, .3);
+      line-height: 50px;
+    }
+
+    &--value {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 2;
+      padding-left: 20px;
+    }
+
+    &--red {
+      color: $cRed;
+    }
+  }
+}

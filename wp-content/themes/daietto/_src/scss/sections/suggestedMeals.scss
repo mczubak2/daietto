@@ -96,7 +96,7 @@
     max-width: 200px;
   }
 
-  &__meal {
+  &__mealTitle {
     margin-bottom: 20px;
     font-size: 2.5rem;
     font-weight: 700;
@@ -182,6 +182,14 @@
     @include rwd ('large-tablet') {
       max-width: none;
     }
+  }
+
+  &__line {
+    width: 62px;
+    height: 8px;
+    margin-bottom: 26px;
+    border-radius: 10px;
+    background-color: $cDark;
   }
 
   &__header {

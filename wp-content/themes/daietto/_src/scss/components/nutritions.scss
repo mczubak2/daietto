@@ -1,0 +1,25 @@
+.nutritions {
+  flex: 1;
+  display: grid;
+  place-items: center;
+
+  &__inner {
+    margin-right: 100px;
+  }
+
+  &__item {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__itemName {
+    font-size: 2rem;
+    color: $cLight;
+    font-weight: 600;
+  }
+}
