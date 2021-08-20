@@ -7,6 +7,16 @@
 
   &__title {
     margin-bottom: 50px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 62px;
+      height: 8px;
+      margin-bottom: 26px;
+      border-radius: 10px;
+      background-color: $cLight;
+    }
   }
 
   &__item {

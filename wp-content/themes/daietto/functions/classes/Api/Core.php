@@ -6,7 +6,7 @@
   {
     public function __construct()
     {
-      new GenericPost();
+      new Meals();
     }
   }
 
