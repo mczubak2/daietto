@@ -1,0 +1,91 @@
+.recipe {
+
+  &__inner {
+    display: flex;
+    padding: 70px 0;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 62px;
+      height: 8px;
+      margin-bottom: 26px;
+      border-radius: 10px;
+      background-color: $cLight;
+    }
+  }
+
+  &__prepTime {
+    margin-left: 10px;
+    font-size: 1.6rem;
+    color: $cLight;
+    font-weight: 400;
+  }
+
+  &__animation {
+    flex: 1;
+    position: relative;
+    display: grid;
+    place-items: center;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border-radius: 300px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba($color: $cLight, $alpha: .5);
+    }
+
+    &::before {
+      top: 40%;
+      left: 40%;
+    }
+
+    &::after {
+      top: 60%;
+      left: 60%;
+    }
+  }
+
+  &__animationList {
+    position: relative;
+    width: 80%;
+    height: 100%;
+  }
+
+  &__animationItem {
+    position: absolute;
+    font-size: 3.5rem;
+    width: fit-content;
+    z-index: 100;
+    bottom: 20%;
+    width: 10%;
+    transform: translateX(-50%);
+  }
+
+  &__animationBucket {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    font-size: 20rem;
+    z-index: 200;
+  }
+
+  &__steps {
+    flex: 1;
+  }
+
+  &__stepsItem {
+    list-style-type: decimal;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+}

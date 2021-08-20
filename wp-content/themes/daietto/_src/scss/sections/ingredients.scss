@@ -89,4 +89,10 @@
   &__backgroundElementImage {
     max-width: 100%;
   }
+
+  &__animatedItem {
+    width: 100px;
+    height: 100px;
+    background-color: $cBlack;
+  }
 }

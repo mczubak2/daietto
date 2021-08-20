@@ -2,6 +2,7 @@ import Footer from './site/Footer';
 import Header from './site/Header';
 import ProgressCircle from './sections/ProgressCircle';
 import Slider from './sections/Slider';
+import AnimateOnScroll from './sections/AnimateOnScroll';
 
 class Core
 {
@@ -11,6 +12,7 @@ class Core
     new Header();
     new ProgressCircle();
     new Slider();
+    new AnimateOnScroll();
   }
 }
 
