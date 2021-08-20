@@ -3,6 +3,7 @@ import Header from './site/Header';
 import ProgressCircle from './sections/ProgressCircle';
 import Slider from './sections/Slider';
 import AnimateOnScroll from './sections/AnimateOnScroll';
+import Accordions from './sections/Accordions';
 
 class Core
 {
@@ -13,6 +14,7 @@ class Core
     new ProgressCircle();
     new Slider();
     new AnimateOnScroll();
+    new Accordions();
   }
 }
 

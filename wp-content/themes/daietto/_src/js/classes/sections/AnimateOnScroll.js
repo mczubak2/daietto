@@ -24,15 +24,6 @@ export default class AnimateOnScroll {
   initGsap() {
     gsap.registerPlugin(ScrollTrigger);
 
-    let tween = gsap.fromTo(this.selectors.element, 
-    {
-      y: -100,
-      x: 50
-    }, {
-      y: 0,
-      x: 100
-    });
-
     gsap.to(this.selectors.element, {
       scrollTrigger: {
         trigger: this.selectors.container,
