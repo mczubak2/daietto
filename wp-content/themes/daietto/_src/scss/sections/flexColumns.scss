@@ -38,6 +38,12 @@
         opacity: 1;
       }
     }
+
+    &:not(:hover) {
+      #{$root}__header {
+        opacity: 0;
+      }
+    }
   }
 
   &__header {
@@ -45,14 +51,15 @@
     z-index: 100;
     display: flex;
     margin-bottom: 50px;
+    transition: $tr-m ease;
   }
 
   &__headerTitle {
     color: $cWhite;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: 500;
-    max-width: 130px;
+    max-width: 200px;
     line-height: 1.3;
   }
 
@@ -73,6 +80,15 @@
     line-height: 1.5;
     padding-right: 50px;
     opacity: 0;
+    font-weight: 500;
     transition: $tr-m ease;
+  }
+
+  &__list {
+    &:not(:hover) {
+      #{$root}__header {
+        opacity: 1;
+      }
+    }
   }
 }
