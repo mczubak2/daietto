@@ -22,12 +22,6 @@
         '2048x2048',
       ];
 
-      // foreach ($sizes as $sizeIndex => $size) {
-      //   if (in_array($size, $toRemove)) {
-      //     unset($sizes[$sizeIndex]);
-      //   }
-      // }
-
       $keepSizes = [];
       foreach ($sizes as $sizeIndex => $size) {
         if (!in_array($size, $toRemove)) {
