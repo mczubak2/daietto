@@ -3,12 +3,16 @@
     <div class="recipe__inner">
       <div class="recipe__animation" data-animate-on-scroll-container>
         <ul class="recipe__animationList" data-animate-on-scroll-list>
+          <?php /* 
+          
           <?php foreach ($section['animated_items'] as $index => $item): ?>
             <li class="recipe__animationItem" data-animate-on-scroll-element style="left: <?= ((20 / count($section['animated_items'])) * $index) + 20 ?>%;">
               <?= $item['item'] ?>
             </li>
           <?php endforeach; ?>
           <li class="recipe__animationBucket" data-animate-on-scroll-bucket>🥣</li>
+          
+          */ ?>
         </ul>
       </div>
       <div class="recipe__steps" 
