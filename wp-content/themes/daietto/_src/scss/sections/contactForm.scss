@@ -1,0 +1,26 @@
+.contactForm {
+
+  &__inner {
+    display: grid;
+    place-items: center;
+    height: 75vh;
+  }
+
+  &__form {
+    max-width: 400px;
+  }
+
+  &__input {
+    background-color: $cWhite;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+
+    &:focus-visible {
+      border-color: $cLight;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgb(43 49 116 / 25%);
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+  }
+}
