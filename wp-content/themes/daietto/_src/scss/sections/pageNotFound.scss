@@ -1,0 +1,41 @@
+.pageNotFound {
+
+  &__inner {
+    position: relative;
+    height: calc(100vh - 70px);
+    display: grid;
+    place-items: center;
+    font-size: 15rem;
+    font-weight: 700;
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      width: 40vh;
+      height: 40vh;
+      position: absolute;
+      border-radius: 40vh;
+      transform: translate(-50%, -50%);
+      background-color: rgba($cLight, .5);
+      z-index: 100;
+    }
+
+    &::before {
+      left: 40%;
+      top: 40%;
+    }
+
+    &::after {
+      left: 60%;
+      top: 60%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 200;
+    color: $cDark;
+
+  }
+}
