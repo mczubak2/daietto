@@ -1,7 +1,7 @@
 <section class="suggestedMeals">
   <div class="container">
     <div class="suggestedMeals__inner">
-      <div class="suggestedMeals__meals">
+      <div class="suggestedMeals__meals" data-aos="fade-right" data-aos-anchor-placement="top-center">
         <?php foreach ($section['meals'] as $item):
 
           $id    = $item['meal']->ID;
@@ -36,7 +36,7 @@
           </div>
         <?php endforeach; ?>
       </div>
-      <div class="suggestedMeals__content">
+      <div class="suggestedMeals__content" data-aos="fade-left" data-aos-anchor-placement="top-center">
         <div class="suggestedMeals__contentInner">
           <div class="suggestedMeals__line"></div>
           <h1 class="suggestedMeals__header h">

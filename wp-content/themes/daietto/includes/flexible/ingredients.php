@@ -1,6 +1,8 @@
 <section class="ingredients">
   <div class="container">
-    <div class="ingredients__inner">
+    <div class="ingredients__inner"
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center">
       <h4 class="ingredients__title h">
         <?= $section['title'] ?>
       </h4>
@@ -16,9 +18,9 @@
           </li>
         <?php endforeach; ?>
       </ul>
-      <div class="ingredients__backgroundElement">
-        <img class="ingredients__backgroundElementImage" src="<?= THEME_URL . '/assets/images/background_element.png' ?>">
-      </div>
     </div>
+  </div>
+  <div class="ingredients__backgroundElement">
+    <img class="ingredients__backgroundElementImage" src="<?= THEME_URL . '/assets/images/background_element.png' ?>">
   </div>
 </section>

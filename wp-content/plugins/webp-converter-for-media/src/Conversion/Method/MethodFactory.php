@@ -1,15 +1,13 @@
 <?php
 
-namespace WebpConverter\Conversion;
+namespace WebpConverter\Conversion\Method;
 
-use WebpConverter\Conversion\Method\MethodInterface;
-use WebpConverter\Conversion\Method\GdMethod;
-use WebpConverter\Conversion\Method\ImagickMethod;
+use WebpConverter\Conversion\Format\FormatFactory;
 
 /**
  * Adds support for all conversion methods and returns information about them.
  */
-class Methods {
+class MethodFactory {
 
 	/**
 	 * Objects of supported conversion methods.
@@ -18,12 +16,20 @@ class Methods {
 	 */
 	private $methods = [];
 
-	/**
-	 * Methods constructor.
-	 */
 	public function __construct() {
-		$this->methods[ GdMethod::METHOD_NAME ]      = new GdMethod();
-		$this->methods[ ImagickMethod::METHOD_NAME ] = new ImagickMethod();
+		$this->set_integration( new ImagickMethod() );
+		$this->set_integration( new GdMethod() );
+	}
+
+	/**
+	 * Sets integration for method.
+	 *
+	 * @param MethodInterface $method .
+	 *
+	 * @return void
+	 */
+	private function set_integration( MethodInterface $method ) {
+		$this->methods[ $method->get_name() ] = $method;
 	}
 
 	/**
@@ -60,7 +66,8 @@ class Methods {
 	public function get_available_methods(): array {
 		$values = [];
 		foreach ( $this->get_methods_objects() as $method_name => $method ) {
-			if ( ! $method::is_method_installed() ) {
+			if ( ! $method::is_method_installed()
+				|| ( ! ( new FormatFactory() )->get_available_formats( $method_name ) ) ) {
 				continue;
 			}
 			$values[ $method_name ] = $method->get_label();

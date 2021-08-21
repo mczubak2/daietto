@@ -2,52 +2,42 @@
 
 namespace WebpConverter\Conversion\Method;
 
-use WebpConverter\Conversion\Method\MethodAbstract;
-use WebpConverter\Conversion\Method\MethodInterface;
-use WebpConverter\Conversion\Format\WebpFormat;
-use WebpConverter\Conversion\Format\AvifFormat;
 use WebpConverter\Conversion\Exception;
+use WebpConverter\Conversion\Format\AvifFormat;
+use WebpConverter\Conversion\Format\WebpFormat;
 
 /**
  * Supports image conversion method using Imagick library.
  */
-class ImagickMethod extends MethodAbstract implements MethodInterface {
+class ImagickMethod extends MethodAbstract {
 
-	const METHOD_NAME = 'imagick';
+	const METHOD_NAME        = 'imagick';
+	const MAX_METHOD_QUALITY = 99.9;
 
 	/**
-	 * Returns name of conversion method.
-	 *
-	 * @return string Method name.
+	 * {@inheritdoc}
 	 */
 	public function get_name(): string {
 		return self::METHOD_NAME;
 	}
 
 	/**
-	 * Returns label of conversion method.
-	 *
-	 * @return string Method label.
+	 * {@inheritdoc}
 	 */
 	public function get_label(): string {
-		return 'Imagick';
+		/* translators: %s method name */
+		return sprintf( __( '%s (recommended)', 'webp-converter-for-media' ), 'Imagick' );
 	}
 
 	/**
-	 * Returns status of whether method is installed.
-	 *
-	 * @return bool Is method installed?
+	 * {@inheritdoc}
 	 */
 	public static function is_method_installed(): bool {
 		return ( extension_loaded( 'imagick' ) && class_exists( '\Imagick' ) );
 	}
 
 	/**
-	 * Returns status of whether method is active.
-	 *
-	 * @param string $format Extension of output format.
-	 *
-	 * @return bool Is method active?
+	 * {@inheritdoc}
 	 */
 	public static function is_method_active( string $format ): bool {
 		if ( ! self::is_method_installed()
@@ -77,22 +67,19 @@ class ImagickMethod extends MethodAbstract implements MethodInterface {
 	}
 
 	/**
-	 * Creates image object based on source path.
+	 * {@inheritdoc}
 	 *
-	 * @param string $source_path Server path of source image.
-	 *
-	 * @return \Imagick Image object.
-	 * @throws Exception\ImagickUnavailableException
+	 * @return \Imagick .
 	 * @throws Exception\ExtensionUnsupportedException
+	 * @throws Exception\ImagickUnavailableException
 	 * @throws Exception\ImageInvalidException
 	 */
-	public function create_image_by_path( string $source_path ) {
+	public function create_image_by_path( string $source_path, array $plugin_settings ) {
 		$extension = strtolower( pathinfo( $source_path, PATHINFO_EXTENSION ) );
-		$settings  = $this->get_plugin()->get_settings();
 
 		if ( ! extension_loaded( 'imagick' ) || ! class_exists( 'Imagick' ) ) {
 			throw new Exception\ImagickUnavailableException();
-		} elseif ( ! in_array( $extension, $settings['extensions'] ) ) {
+		} elseif ( ! in_array( $extension, $plugin_settings['extensions'] ) ) {
 			throw new Exception\ExtensionUnsupportedException( [ $extension, $source_path ] );
 		}
 
@@ -104,31 +91,25 @@ class ImagickMethod extends MethodAbstract implements MethodInterface {
 	}
 
 	/**
-	 * Converts image and saves to output location.
+	 * {@inheritdoc}
 	 *
-	 * @param \Imagick $image       Image object.
-	 * @param string   $source_path Server path of source image.
-	 * @param string   $output_path Server path for output image.
-	 * @param string   $format      Extension of output format.
-	 *
-	 * @return void
 	 * @throws Exception\ConversionErrorException
 	 * @throws Exception\ImagickNotSupportWebpException
 	 */
-	public function convert_image_to_output( $image, string $source_path, string $output_path, string $format ) {
-		$extension = self::get_format_extension( $format );
-		$image     = apply_filters( 'webpc_imagick_before_saving', $image, $source_path );
-		$settings  = $this->get_plugin()->get_settings();
+	public function convert_image_to_output( $image, string $source_path, string $output_path, string $format, array $plugin_settings ) {
+		$extension      = self::get_format_extension( $format );
+		$image          = apply_filters( 'webpc_imagick_before_saving', $image, $source_path );
+		$output_quality = min( $plugin_settings['quality'], self::MAX_METHOD_QUALITY );
 
 		if ( ! in_array( $extension, $image->queryFormats() ) ) {
 			throw new Exception\ImagickNotSupportWebpException();
 		}
 
 		$image->setImageFormat( $extension );
-		if ( ! in_array( 'keep_metadata', $settings['features'] ) ) {
+		if ( ! in_array( 'keep_metadata', $plugin_settings['features'] ) ) {
 			$image->stripImage();
 		}
-		$image->setImageCompressionQuality( $settings['quality'] );
+		$image->setImageCompressionQuality( $output_quality );
 		$blob = $image->getImageBlob();
 
 		if ( ! file_put_contents( $output_path, $blob ) ) {

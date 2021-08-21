@@ -8,6 +8,9 @@
   ExpiresActive On
   ExpiresByType image/webp "access plus 1 year"
 </IfModule>
+<IfModule mod_headers.c>
+  Header always set Cache-Control "private"
+</IfModule>
 # ! --- DO NOT EDIT NEXT LINE --- !
 # END WebP Converter
 

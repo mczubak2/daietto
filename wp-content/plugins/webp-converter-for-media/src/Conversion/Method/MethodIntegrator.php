@@ -2,17 +2,24 @@
 
 namespace WebpConverter\Conversion\Method;
 
-use WebpConverter\PluginAccessAbstract;
-use WebpConverter\PluginAccessInterface;
-use WebpConverter\Conversion\Methods;
-use WebpConverter\Conversion\Method\GdMethod;
-use WebpConverter\Conversion\Method\ImagickMethod;
-use WebpConverter\Conversion\Method\RemoteMethod;
+use WebpConverter\PluginData;
 
 /**
  * Initializes image conversion using active image conversion method.
  */
-class MethodIntegrator extends PluginAccessAbstract implements PluginAccessInterface {
+class MethodIntegrator {
+
+	/**
+	 * @var PluginData .
+	 */
+	private $plugin_data;
+
+	/**
+	 * @param PluginData $plugin_data .
+	 */
+	public function __construct( PluginData $plugin_data ) {
+		$this->plugin_data = $plugin_data;
+	}
 
 	/**
 	 * Initializes converting source images using active and set conversion method.
@@ -26,7 +33,7 @@ class MethodIntegrator extends PluginAccessAbstract implements PluginAccessInter
 			return null;
 		}
 
-		$method->convert_paths( $paths );
+		$method->convert_paths( $paths, $this->plugin_data->get_plugin_settings() );
 		return [
 			'errors' => apply_filters( 'webpc_convert_errors', $method->get_errors() ),
 			'size'   => [
@@ -46,11 +53,10 @@ class MethodIntegrator extends PluginAccessAbstract implements PluginAccessInter
 			return null;
 		}
 
-		$method_key = $this->get_plugin()->get_settings()['method'] ?? '';
-		$methods    = ( new Methods() )->get_methods_objects();
+		$method_key = $this->plugin_data->get_plugin_settings()['method'] ?? '';
+		$methods    = ( new MethodFactory() )->get_methods_objects();
 		foreach ( $methods as $method_name => $method ) {
 			if ( $method_key === $method_name ) {
-				$method->set_plugin( $this->get_plugin() );
 				return $method;
 			}
 		}

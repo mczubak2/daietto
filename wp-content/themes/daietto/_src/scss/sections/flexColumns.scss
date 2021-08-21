@@ -1,0 +1,23 @@
+.fourColumns {
+  &__list {
+    height: 90vh;
+    display: flex;
+  }
+
+  &__item {
+    flex: 1;
+    transition: $tr-m ease-in-out;
+
+    &:nth-child(odd) {
+      background-color: $cLight;
+    }
+
+    &:nth-child(even) {
+      background-color: $cDarkBlue;
+    }
+
+    &:hover {
+      flex: 2;
+    }
+  }
+}

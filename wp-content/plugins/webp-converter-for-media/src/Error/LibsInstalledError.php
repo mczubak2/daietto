@@ -2,20 +2,16 @@
 
 namespace WebpConverter\Error;
 
-use WebpConverter\Error\ErrorAbstract;
-use WebpConverter\Error\ErrorInterface;
 use WebpConverter\Conversion\Method\GdMethod;
 use WebpConverter\Conversion\Method\ImagickMethod;
 
 /**
  * Checks for configuration errors about non-installed methods for converting images.
  */
-class LibsInstalledError extends ErrorAbstract implements ErrorInterface {
+class LibsInstalledError implements ErrorInterface {
 
 	/**
-	 * Returns list of error codes.
-	 *
-	 * @return string[] Error codes.
+	 * {@inheritdoc}
 	 */
 	public function get_error_codes(): array {
 		$errors = [];

@@ -2,9 +2,6 @@
 
 namespace WebpConverter\Settings\Option;
 
-use WebpConverter\Settings\Option\OptionInterface;
-use WebpConverter\Settings\Option\OptionAbstract;
-
 /**
  * Allows to integrate with field in plugin settings by specifying its settings and value.
  */
@@ -18,8 +15,6 @@ class OptionIntegration {
 	private $option;
 
 	/**
-	 * OptionIntegration constructor.
-	 *
 	 * @param OptionInterface $option .
 	 */
 	public function __construct( OptionInterface $option ) {

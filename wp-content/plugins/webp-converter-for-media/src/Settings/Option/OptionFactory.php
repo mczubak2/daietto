@@ -1,21 +1,42 @@
 <?php
 
-namespace WebpConverter\Settings;
+namespace WebpConverter\Settings\Option;
 
-use WebpConverter\Settings\Option\OptionInterface;
-use WebpConverter\Settings\Option\OptionIntegration;
-use WebpConverter\Settings\Option\LoaderTypeOption;
-use WebpConverter\Settings\Option\OutputFormatsOption;
-use WebpConverter\Settings\Option\SupportedExtensionsOption;
-use WebpConverter\Settings\Option\SupportedDirectoriesOption;
-use WebpConverter\Settings\Option\ConversionMethodOption;
-use WebpConverter\Settings\Option\ImagesQualityOption;
-use WebpConverter\Settings\Option\ExtraFeaturesOption;
+use WebpConverter\Helper\OptionsAccess;
+use WebpConverter\Settings\SettingsSave;
 
 /**
  * Allows to integration with plugin settings by providing list of settings fields and saved values.
  */
-class Options {
+class OptionFactory {
+
+	/**
+	 * Objects of supported options.
+	 *
+	 * @var OptionInterface[]
+	 */
+	private $options = [];
+
+	public function __construct() {
+		$this->set_integration( new LoaderTypeOption() );
+		$this->set_integration( new SupportedExtensionsOption() );
+		$this->set_integration( new SupportedDirectoriesOption() );
+		$this->set_integration( new ConversionMethodOption() );
+		$this->set_integration( new OutputFormatsOption() );
+		$this->set_integration( new ImagesQualityOption() );
+		$this->set_integration( new ExtraFeaturesOption() );
+	}
+
+	/**
+	 * Sets integration for option.
+	 *
+	 * @param OptionInterface $option .
+	 *
+	 * @return void
+	 */
+	private function set_integration( OptionInterface $option ) {
+		$this->options[] = $option;
+	}
 
 	/**
 	 * Returns options of plugin settings.
@@ -27,30 +48,13 @@ class Options {
 	 */
 	public function get_options( bool $is_debug = false, array $posted_settings = null ): array {
 		$is_save  = ( $posted_settings !== null );
-		$settings = ( $is_save ) ? $posted_settings : get_option( SettingsSave::SETTINGS_OPTION, [] );
+		$settings = ( $is_save ) ? $posted_settings : OptionsAccess::get_option( SettingsSave::SETTINGS_OPTION, [] );
 
 		$options = [];
-		foreach ( $this->get_option_objects() as $option_object ) {
+		foreach ( $this->options as $option_object ) {
 			$options[] = ( new OptionIntegration( $option_object ) )->get_option_data( $settings, $is_debug, $is_save );
 		}
 		return $options;
-	}
-
-	/**
-	 * Returns objects for options of plugin settings.
-	 *
-	 * @return OptionInterface[] .
-	 */
-	private function get_option_objects(): array {
-		return [
-			new LoaderTypeOption(),
-			new SupportedExtensionsOption(),
-			new SupportedDirectoriesOption(),
-			new ConversionMethodOption(),
-			new OutputFormatsOption(),
-			new ImagesQualityOption(),
-			new ExtraFeaturesOption(),
-		];
 	}
 
 	/**

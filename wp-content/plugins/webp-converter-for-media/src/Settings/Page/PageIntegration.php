@@ -1,31 +1,45 @@
 <?php
 
-namespace WebpConverter\Settings;
+namespace WebpConverter\Settings\Page;
 
-use WebpConverter\PluginAccessAbstract;
-use WebpConverter\PluginAccessInterface;
 use WebpConverter\HookableInterface;
+use WebpConverter\Notice\NoticeIntegration;
 use WebpConverter\Notice\WelcomeNotice;
 use WebpConverter\Settings\AdminAssets;
-use WebpConverter\Settings\Page\DebugPage;
-use WebpConverter\Settings\Page\PageInterface;
-use WebpConverter\Settings\Page\SettingsPage;
 
 /**
  * Adds plugin settings page in admin panel.
  */
-class Pages extends PluginAccessAbstract implements PluginAccessInterface, HookableInterface {
+class PageIntegration implements HookableInterface {
 
 	const ADMIN_MENU_PAGE = 'webpc_admin_page';
 
 	/**
-	 * Integrates with WordPress hooks.
+	 * Objects of supported plugin settings pages.
 	 *
-	 * @return void
+	 * @var PageInterface[]
+	 */
+	private $pages = [];
+
+	/**
+	 * {@inheritdoc}
 	 */
 	public function init_hooks() {
 		add_action( 'admin_menu', [ $this, 'add_settings_page_for_admin' ] );
 		add_action( 'network_admin_menu', [ $this, 'add_settings_page_for_network' ] );
+	}
+
+	/**
+	 * Sets integration for page.
+	 *
+	 * @param PageInterface $page .
+	 *
+	 * @return self
+	 */
+	public function set_page_integration( PageInterface $page ) {
+		$this->pages[] = $page;
+
+		return $this;
 	}
 
 	/**
@@ -90,8 +104,9 @@ class Pages extends PluginAccessAbstract implements PluginAccessInterface, Hooka
 	 * @internal
 	 */
 	public function load_settings_page() {
-		$this->init_page_is_active( new DebugPage() );
-		$this->init_page_is_active( new SettingsPage() );
+		foreach ( $this->pages as $page ) {
+			$this->init_page_is_active( $page );
+		}
 	}
 
 	/**
@@ -102,10 +117,11 @@ class Pages extends PluginAccessAbstract implements PluginAccessInterface, Hooka
 	 * @return void
 	 */
 	private function init_page_is_active( PageInterface $page ) {
-		$page->set_plugin( $this->get_plugin() );
-		if ( $page->is_page_active() ) {
-			$page->show_page_view();
+		if ( ! $page->is_page_active() ) {
+			return;
 		}
+
+		$page->show_page_view();
 	}
 
 	/**
@@ -115,7 +131,7 @@ class Pages extends PluginAccessAbstract implements PluginAccessInterface, Hooka
 	 * @internal
 	 */
 	public function load_scripts_for_page() {
-		WelcomeNotice::disable_notice();
+		( new NoticeIntegration( new WelcomeNotice() ) )->set_disable_value();
 		( new AdminAssets() )->init_hooks();
 	}
 }

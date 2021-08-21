@@ -2,14 +2,13 @@
 
 namespace WebpConverter\Conversion\Directory;
 
-use WebpConverter\Conversion\Directory\DirectoryInterface;
-use WebpConverter\HookableInterface;
 use WebpConverter\Conversion\OutputPath;
+use WebpConverter\HookableInterface;
 
 /**
  * Returns various types of paths for directories.
  */
-class DirectoriesIntegration implements HookableInterface {
+class DirectoryIntegration implements HookableInterface {
 
 	const DIRS_EXCLUDED = [ '.', '..', '.git', '.svn', 'node_modules' ];
 
@@ -21,9 +20,7 @@ class DirectoriesIntegration implements HookableInterface {
 	private $directories = [];
 
 	/**
-	 * Integrates with WordPress hooks.
-	 *
-	 * @return void
+	 * {@inheritdoc}
 	 */
 	public function init_hooks() {
 		add_filter( 'webpc_dir_name', [ $this, 'get_dir_as_name' ], 0, 2 );
@@ -41,10 +38,6 @@ class DirectoriesIntegration implements HookableInterface {
 	 * @return self
 	 */
 	public function add_directory( DirectoryInterface $directory ): self {
-		if ( ! $directory->is_available() ) {
-			return $this;
-		}
-
 		$this->directories[ $directory->get_type() ] = $directory;
 		return $this;
 	}
@@ -57,7 +50,7 @@ class DirectoriesIntegration implements HookableInterface {
 	public function get_input_directories(): array {
 		$values = [];
 		foreach ( $this->directories as $directory ) {
-			if ( ! $directory->is_output_directory() ) {
+			if ( ! $directory->is_output_directory() && $directory->is_available() ) {
 				$values[ $directory->get_type() ] = $directory->get_label();
 			}
 		}

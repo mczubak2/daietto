@@ -6,14 +6,21 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'WpBetterPermalinks\\Admin\\Assets' => $baseDir . '/app/Admin/Assets.php',
-    'WpBetterPermalinks\\Admin\\Install' => $baseDir . '/app/Admin/Install.php',
     'WpBetterPermalinks\\Admin\\Notice' => $baseDir . '/app/Admin/Notice.php',
     'WpBetterPermalinks\\Admin\\Plugin' => $baseDir . '/app/Admin/Plugin.php',
-    'WpBetterPermalinks\\Admin\\Uninstall' => $baseDir . '/app/Admin/Uninstall.php',
     'WpBetterPermalinks\\Admin\\_Core' => $baseDir . '/app/Admin/_Core.php',
+    'WpBetterPermalinks\\Plugin\\Activation' => $baseDir . '/app/Plugin/Activation.php',
+    'WpBetterPermalinks\\Plugin\\Deactivation' => $baseDir . '/app/Plugin/Deactivation.php',
+    'WpBetterPermalinks\\Plugin\\Install' => $baseDir . '/app/Plugin/Install.php',
+    'WpBetterPermalinks\\Plugin\\Uninstall' => $baseDir . '/app/Plugin/Uninstall.php',
+    'WpBetterPermalinks\\Plugin\\_Core' => $baseDir . '/app/Plugin/_Core.php',
+    'WpBetterPermalinks\\Posttype\\Cache' => $baseDir . '/app/Posttype/Cache.php',
     'WpBetterPermalinks\\Posttype\\Link' => $baseDir . '/app/Posttype/Link.php',
+    'WpBetterPermalinks\\Posttype\\Register' => $baseDir . '/app/Posttype/Register.php',
     'WpBetterPermalinks\\Posttype\\Rewrites' => $baseDir . '/app/Posttype/Rewrites.php',
+    'WpBetterPermalinks\\Posttype\\Yoast' => $baseDir . '/app/Posttype/Yoast.php',
     'WpBetterPermalinks\\Posttype\\_Core' => $baseDir . '/app/Posttype/_Core.php',
     'WpBetterPermalinks\\Settings\\Config' => $baseDir . '/app/Settings/Config.php',
     'WpBetterPermalinks\\Settings\\Options' => $baseDir . '/app/Settings/Options.php',
@@ -30,5 +37,5 @@ return array(
     'WpBetterPermalinks\\Taxonomy\\Rewrites' => $baseDir . '/app/Taxonomy/Rewrites.php',
     'WpBetterPermalinks\\Taxonomy\\Save' => $baseDir . '/app/Taxonomy/Save.php',
     'WpBetterPermalinks\\Taxonomy\\_Core' => $baseDir . '/app/Taxonomy/_Core.php',
-    'WpBetterPermalinks\\WpBetterPermalinks' => $baseDir . '/app/WPBetterPermalinks.php',
+    'WpBetterPermalinks\\WpBetterPermalinks' => $baseDir . '/app/WpBetterPermalinks.php',
 );

@@ -3,7 +3,7 @@ Contributors: mateuszgbiorczyk
 Donate link: https://ko-fi.com/gbiorczyk/?utm_source=wp-better-permalinks&utm_medium=readme-donate
 Tags: friendly permalinks, permalinks structure, taxonomy term permalinks, custom post type permalinks, permalinks tree
 Requires at least: 5.0
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv2 or later
@@ -92,6 +92,9 @@ This is all very important to us and allows us to do even better things for you!
 1. Screenshot of the options panel
 
 == Changelog ==
+
+= 4.1.1 (2021-05-22) =
+* `[Fixed]` Closing notice in admin panel
 
 = 4.1.0 (2020-10-28) =
 * `[Fixed]` Generating Rewrite Rules for WPML

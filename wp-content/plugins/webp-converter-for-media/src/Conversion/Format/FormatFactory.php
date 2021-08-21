@@ -1,15 +1,11 @@
 <?php
 
-namespace WebpConverter\Conversion;
-
-use WebpConverter\Conversion\Format\FormatInterface;
-use WebpConverter\Conversion\Format\AvifFormat;
-use WebpConverter\Conversion\Format\WebpFormat;
+namespace WebpConverter\Conversion\Format;
 
 /**
  * Adds support for all output formats and returns information about them.
  */
-class Formats {
+class FormatFactory {
 
 	/**
 	 * Objects of supported output formats.
@@ -18,12 +14,20 @@ class Formats {
 	 */
 	private $formats = [];
 
-	/**
-	 * Formats constructor.
-	 */
 	public function __construct() {
-		$this->formats[] = new AvifFormat();
-		$this->formats[] = new WebpFormat();
+		$this->set_integration( new AvifFormat() );
+		$this->set_integration( new WebpFormat() );
+	}
+
+	/**
+	 * Sets integration for format.
+	 *
+	 * @param FormatInterface $format .
+	 *
+	 * @return void
+	 */
+	private function set_integration( FormatInterface $format ) {
+		$this->formats[] = $format;
 	}
 
 	/**

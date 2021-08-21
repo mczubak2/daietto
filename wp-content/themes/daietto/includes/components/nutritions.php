@@ -2,7 +2,9 @@
   $content = get_field('meal', get_the_ID());
 ?>
 
-<div class="nutritions">
+<div class="nutritions"
+  data-aos="fade-right"
+  data-aos-anchor-placement="top-center">
   <div class="nutritions__inner">
     <ul class="nutritions__list">
       <?php foreach ($content['main_ingriedients'] as $item): ?>

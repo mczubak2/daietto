@@ -23,10 +23,10 @@
         class="wbpContent__button wbpButton wbpButton--green dashicons-heart">
         <?= __('Provide us a coffee', 'wp-better-permalinks'); ?>
       </a>
-      <a href="#" target="_blank" data-permanently
+      <button type="button" data-permanently
         class="wbpContent__button wbpButton wbpButton--blue">
         <?= __('I added review, do not show again', 'wp-better-permalinks'); ?>
-      </a>
+      </button>
     </div>
   </div>
 </div>

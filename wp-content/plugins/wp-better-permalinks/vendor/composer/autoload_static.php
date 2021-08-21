@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit152b7046d8eec7a788d5170d79d77691
+class ComposerStaticInitbb1e1660d8e958d338a847c28ad18400
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -21,14 +21,21 @@ class ComposerStaticInit152b7046d8eec7a788d5170d79d77691
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'WpBetterPermalinks\\Admin\\Assets' => __DIR__ . '/../..' . '/app/Admin/Assets.php',
-        'WpBetterPermalinks\\Admin\\Install' => __DIR__ . '/../..' . '/app/Admin/Install.php',
         'WpBetterPermalinks\\Admin\\Notice' => __DIR__ . '/../..' . '/app/Admin/Notice.php',
         'WpBetterPermalinks\\Admin\\Plugin' => __DIR__ . '/../..' . '/app/Admin/Plugin.php',
-        'WpBetterPermalinks\\Admin\\Uninstall' => __DIR__ . '/../..' . '/app/Admin/Uninstall.php',
         'WpBetterPermalinks\\Admin\\_Core' => __DIR__ . '/../..' . '/app/Admin/_Core.php',
+        'WpBetterPermalinks\\Plugin\\Activation' => __DIR__ . '/../..' . '/app/Plugin/Activation.php',
+        'WpBetterPermalinks\\Plugin\\Deactivation' => __DIR__ . '/../..' . '/app/Plugin/Deactivation.php',
+        'WpBetterPermalinks\\Plugin\\Install' => __DIR__ . '/../..' . '/app/Plugin/Install.php',
+        'WpBetterPermalinks\\Plugin\\Uninstall' => __DIR__ . '/../..' . '/app/Plugin/Uninstall.php',
+        'WpBetterPermalinks\\Plugin\\_Core' => __DIR__ . '/../..' . '/app/Plugin/_Core.php',
+        'WpBetterPermalinks\\Posttype\\Cache' => __DIR__ . '/../..' . '/app/Posttype/Cache.php',
         'WpBetterPermalinks\\Posttype\\Link' => __DIR__ . '/../..' . '/app/Posttype/Link.php',
+        'WpBetterPermalinks\\Posttype\\Register' => __DIR__ . '/../..' . '/app/Posttype/Register.php',
         'WpBetterPermalinks\\Posttype\\Rewrites' => __DIR__ . '/../..' . '/app/Posttype/Rewrites.php',
+        'WpBetterPermalinks\\Posttype\\Yoast' => __DIR__ . '/../..' . '/app/Posttype/Yoast.php',
         'WpBetterPermalinks\\Posttype\\_Core' => __DIR__ . '/../..' . '/app/Posttype/_Core.php',
         'WpBetterPermalinks\\Settings\\Config' => __DIR__ . '/../..' . '/app/Settings/Config.php',
         'WpBetterPermalinks\\Settings\\Options' => __DIR__ . '/../..' . '/app/Settings/Options.php',
@@ -45,15 +52,15 @@ class ComposerStaticInit152b7046d8eec7a788d5170d79d77691
         'WpBetterPermalinks\\Taxonomy\\Rewrites' => __DIR__ . '/../..' . '/app/Taxonomy/Rewrites.php',
         'WpBetterPermalinks\\Taxonomy\\Save' => __DIR__ . '/../..' . '/app/Taxonomy/Save.php',
         'WpBetterPermalinks\\Taxonomy\\_Core' => __DIR__ . '/../..' . '/app/Taxonomy/_Core.php',
-        'WpBetterPermalinks\\WpBetterPermalinks' => __DIR__ . '/../..' . '/app/WPBetterPermalinks.php',
+        'WpBetterPermalinks\\WpBetterPermalinks' => __DIR__ . '/../..' . '/app/WpBetterPermalinks.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit152b7046d8eec7a788d5170d79d77691::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit152b7046d8eec7a788d5170d79d77691::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit152b7046d8eec7a788d5170d79d77691::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbb1e1660d8e958d338a847c28ad18400::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbb1e1660d8e958d338a847c28ad18400::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitbb1e1660d8e958d338a847c28ad18400::$classMap;
 
         }, null, ClassLoader::class);
     }

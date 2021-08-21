@@ -1,44 +1,46 @@
 <?php
 
-namespace WebpConverter\Conversion;
+namespace WebpConverter\Conversion\Directory;
 
 use WebpConverter\HookableInterface;
-use WebpConverter\Conversion\Directory\DirectoriesIntegration;
-use WebpConverter\Conversion\Directory\UploadsDirectory;
-use WebpConverter\Conversion\Directory\GalleryDirectory;
-use WebpConverter\Conversion\Directory\UploadsWebpcDirectory;
-use WebpConverter\Conversion\Directory\PluginsDirectory;
-use WebpConverter\Conversion\Directory\ThemesDirectory;
 use WebpConverter\Plugin\Uninstall\WebpFiles;
 
 /**
  * Initializes integration for all directories.
  */
-class Directories implements HookableInterface {
+class DirectoryFactory implements HookableInterface {
 
 	/**
-	 * Objects of supported directories.
+	 * Object of directories integration.
 	 *
-	 * @var DirectoriesIntegration
+	 * @var DirectoryIntegration
 	 */
 	private $directories_integration;
 
-	/**
-	 * Directories constructor.
-	 */
 	public function __construct() {
-		$this->directories_integration = ( new DirectoriesIntegration() )
-			->add_directory( new GalleryDirectory() )
-			->add_directory( new PluginsDirectory() )
-			->add_directory( new ThemesDirectory() )
-			->add_directory( new UploadsDirectory() )
-			->add_directory( new UploadsWebpcDirectory() );
+		$this->set_integration( new GalleryDirectory() );
+		$this->set_integration( new PluginsDirectory() );
+		$this->set_integration( new ThemesDirectory() );
+		$this->set_integration( new UploadsDirectory() );
+		$this->set_integration( new UploadsWebpcDirectory() );
 	}
 
 	/**
-	 * Integrates with WordPress hooks.
+	 * Sets integration for directory.
+	 *
+	 * @param DirectoryInterface $directory .
 	 *
 	 * @return void
+	 */
+	private function set_integration( DirectoryInterface $directory ) {
+		if ( $this->directories_integration === null ) {
+			$this->directories_integration = new DirectoryIntegration();
+		}
+		$this->directories_integration->add_directory( $directory );
+	}
+
+	/**
+	 * {@inheritdoc}
 	 */
 	public function init_hooks() {
 		$this->directories_integration->init_hooks();

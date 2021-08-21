@@ -1,3 +1,5 @@
+import AOS from 'aos';
+
 import Footer from './site/Footer';
 import Header from './site/Header';
 import ProgressCircle from './sections/ProgressCircle';
@@ -15,6 +17,8 @@ class Core
     new Slider();
     new AnimateOnScroll();
     new Accordions();
+
+    AOS.init();
   }
 }
 

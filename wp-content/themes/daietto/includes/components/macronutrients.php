@@ -2,7 +2,9 @@
   $content = get_field('meal', get_the_ID());
 ?>
 
-<div class="macronutrients">
+<div class="macronutrients" 
+  data-aos="fade-left"
+  data-aos-anchor-placement="top-center">
   <div class="macronutrients__inner">
     <div class="macronutrients__macros">
       <ul class="macronutrients__macrosList">

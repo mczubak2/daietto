@@ -27,8 +27,8 @@ export default class AnimateOnScroll {
     gsap.to(this.selectors.element, {
       scrollTrigger: {
         trigger: this.selectors.container,
-        start: 'top 40%',
-        end: 'bottom 60%',
+        start: 'top center',
+        end: 'bottom center',
         markers: true,
         scrub: 2,
       },
@@ -44,8 +44,8 @@ export default class AnimateOnScroll {
     gsap.to(this.selectors.bucket, {
       scrollTrigger: {
         trigger: this.selectors.container,
-        start: 'top 40%',
-        end: 'bottom 60%',
+        start: 'top center',
+        end: 'bottom center',
         markers: true,
         scrub: 1,
       },

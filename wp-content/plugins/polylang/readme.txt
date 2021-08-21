@@ -2,10 +2,10 @@
 Contributors: Chouby, manooweb, raaaahman, marianne38, sebastienserre
 Donate link: https://polylang.pro
 Tags: multilingual, bilingual, translate, translation, language, multilanguage, international, localization
-Requires at least: 5.1
-Tested up to: 5.7
+Requires at least: 5.4
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 3.0.3
+Stable tag: 3.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -78,6 +78,54 @@ Don't hesitate to [give your feedback](http://wordpress.org/support/view/plugin-
 
 == Changelog ==
 
+= 3.1.1 (2021-08-16) =
+
+* Pro: Fix a fatal error with The Events Calendar
+* Allow to remove the cookie with the pll_cookie_expiration filter #905
+
+= 3.1 (2021-07-27) =
+
+* Add compatibility with WordPress 5.8
+* Raise Minimum WordPress version to 5.4
+* Pro: Allow to filter blocks by language in the widget block editor
+* Pro: Allow to export and import XLIFF files for string translations
+* Pro: Add the language switcher in the navigation block (experimental)
+* Pro: Replace dashicons by svg icons in the block editor
+* Pro: The Events Calendar: Add compatibility with Views V2 (only for sites using only one domain)
+* Pro: Fix + icon displayed in the block editor sidebar when the user cannot create a translation
+* Add a warning section to the site health for posts and terms without languages #825
+* Require the simplexml extension in the site health if a wpml-config.xml is found #827
+* Remove the information about the WPML compabitility mode in settings #843
+* The browser preferred language detection is now deactivated by default
+* The media are now untranslated by default
+* Highlight the language filter in the admin toolbar when it's active #821
+* Allow to query comments in multiple languages (just as posts and terms) #840
+* Don't disable the translation input field in the classic metabox #841 Props Onatcer
+* Optimize all images including flags #848 Props lowwebtech
+* Don't redirect if WordPress doesn't validate the redirect url to avoid redirects to /wp-admin/ #879
+* Fix media appearing to have a language after the language is changed in the media library grid view  #807
+* Fix media not all deleted when bulk deleting from the grid view of the media library #830
+* Fix when more than one language switcher are added to the same menu #853
+* Fix PHP notice when adding a CPT archive link to a menu #868 Props davidwebca
+
+= 3.0.6 (2021-06-22) =
+
+* Fix a conflict with the WooCommerce cart translation and cache plugins #876
+
+= 3.0.5 (2021-06-08) =
+
+* Pro: fix original post not assigned to a new translation when the languages sidebar is closed
+* Pro: Attempt to fix zip file corrupted on some installations when exporting string translations
+* Support session cookie with the pll_cookie_expiration filter #835
+* Fix javascript error when a plugin defines its own editor for translated post types #837
+* Fix languages displayed in screen options when editing a term #850
+* Cache: fix post type archive cache not cleared when saving a post #828
+
+= 3.0.4 (2021-04-27) =
+
+* Improve performance in the pages (or hierarchical post types) list table
+* Fix an ajax conflict with WooCommerce License manager
+
 = 3.0.3 (2021-03-23) =
 
 * Fix a warning when a language is corrupted in database (term_language missing)
@@ -89,7 +137,7 @@ Don't hesitate to [give your feedback](http://wordpress.org/support/view/plugin-
 * Move hreflang attributes higher in the head section #771
 * Fix custom flags not working (introduced in 3.0)
 * Fix translation of the confirmation modal when changing the language of a post
-* Fix js and css not loaded when Polylang is used as a mu-plugin ((introduced in 3.0))
+* Fix js and css not loaded when Polylang is used as a mu-plugin (introduced in 3.0)
 * Fix support for html5 stylesheet link tags #775
 * Fix possible warning in frontend-filters-links.php
 * Yoast SEO Premium: Take over the multilingual compatibility removed in Yoast SEO Premium 15.8 #796
@@ -132,37 +180,5 @@ Don't hesitate to [give your feedback](http://wordpress.org/support/view/plugin-
 * Fix browser error when displaying an embed and using a cache plugin #757
 * Fix post type archive title and metadesc not translated in Yoast SEO
 * Fix PHP notice in REST API
-
-= 2.9.2 (2021-02-02) =
-
-* Pro: Fix translation of CPTUI plural label and description not working
-* Add Spanish (Ecuador) to the list of predefined languages
-* Fix typo in "WordPress" string translation group. Props Viktor Szépe #682
-
-= 2.9.1 (2020-12-15) =
-
-* Fix PHP notice: Undefined property: PLL_Cache_Compat::$options with cache plugins. Props bahaa-almahamid. #658
-* Fix title of the search results page with Yoast SEO > 14.0
-
-= 2.9 (2020-12-07) =
-
-* Add compatibility with WordPress 5.6
-* Pro: Add locale fallback used when the theme or plugins translations are not available
-* Pro: Fix SSO and browser preferred language redirect when using multiple domains
-* Pro: Fix post slugs for German and Danish in the REST API
-* Pro: Fix a fatal error in ACF integration when saving url modifications with multiple domains
-* Pro: Fix a deprecated notice fired by ACF since the version 5.9.2
-* Pro: Fix ACF relationship fields not reloaded when changing the language in the classic editor
-* Update plugin updater to version 1.8
-* Add Lower Sorbian to the list of predefined language
-* Options are now translated on backend when using the admin language filter
-* Keep previous translations when modifying an option value
-* Add navigation markup to the language switcher widget
-* Fix canonical redirect for taxonomy terms
-* Fix a fatal error when deleting a post with a translation group corrupted in the database
-* Fix a fatal error when switching to plain permalinks and using multiple domains
-* Fix a conflict with WP Sweep which could corrupt languages
-* Fix title displayed instead of meta description with Yoast SEO > 14.0
-* Fix PHP Notice: Undefined index: wp_the_query in /frontend/choose-lang-content.php on line 92
 
 See [changelog.txt](https://plugins.svn.wordpress.org/polylang/trunk/changelog.txt) for older changelog

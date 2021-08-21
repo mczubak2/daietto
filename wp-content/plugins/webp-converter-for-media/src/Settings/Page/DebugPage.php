@@ -3,40 +3,33 @@
 
 namespace WebpConverter\Settings\Page;
 
-use WebpConverter\Settings\Page\PageAbstract;
-use WebpConverter\Settings\Page\PageInterface;
+use WebpConverter\Error\RewritesError;
+use WebpConverter\Helper\FileLoader;
+use WebpConverter\Helper\ViewLoader;
 use WebpConverter\Loader\LoaderAbstract;
 use WebpConverter\Settings\SettingsSave;
-use WebpConverter\Helper\ViewLoader;
-use WebpConverter\Helper\FileLoader;
-use WebpConverter\Error\RewritesError;
-use WebpConverter\Settings\Pages;
 
 /**
  * Supports debug tab in plugin settings page.
  */
-class DebugPage extends PageAbstract implements PageInterface {
+class DebugPage extends PageAbstract {
 
 	const PAGE_VIEW_PATH = 'views/settings-debug.php';
 
 	/**
-	 * Returns status if view is active.
-	 *
-	 * @return bool Is view active?
+	 * {@inheritdoc}
 	 */
 	public function is_page_active(): bool {
-		return ( isset( $_GET['action'] ) && ( $_GET['action'] === 'server' ) ); // phpcs:ignore
+		return ( isset( $_GET['action'] ) && ( $_GET['action'] === 'server' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	/**
-	 * Displays view for plugin settings page.
-	 *
-	 * @return void
+	 * {@inheritdoc}
 	 */
 	public function show_page_view() {
-		$plugin       = $this->get_plugin();
 		$uploads_url  = apply_filters( 'webpc_dir_url', '', 'uploads' );
 		$uploads_path = apply_filters( 'webpc_dir_path', '', 'uploads' );
+		$ver_param    = sprintf( 'ver=%s', time() );
 
 		do_action( LoaderAbstract::ACTION_NAME, true, true );
 
@@ -45,13 +38,13 @@ class DebugPage extends PageAbstract implements PageInterface {
 			[
 				'settings_url'          => sprintf(
 					'%1$s&%2$s=%3$s',
-					Pages::get_settings_page_url(),
+					PageIntegration::get_settings_page_url(),
 					SettingsSave::NONCE_PARAM_KEY,
 					wp_create_nonce( SettingsSave::NONCE_PARAM_VALUE )
 				),
 				'settings_debug_url'    => sprintf(
 					'%s&action=server',
-					Pages::get_settings_page_url()
+					PageIntegration::get_settings_page_url()
 				),
 				'size_png_path'         => FileLoader::get_file_size_by_path(
 					$uploads_path . RewritesError::PATH_OUTPUT_FILE_PNG
@@ -61,21 +54,27 @@ class DebugPage extends PageAbstract implements PageInterface {
 				),
 				'size_png_url'          => FileLoader::get_file_size_by_url(
 					$uploads_url . RewritesError::PATH_OUTPUT_FILE_PNG,
-					$plugin,
-					false
+					$this->plugin_data,
+					false,
+					$ver_param
 				),
 				'size_png2_url'         => FileLoader::get_file_size_by_url(
 					$uploads_url . RewritesError::PATH_OUTPUT_FILE_PNG2,
-					$plugin,
-					false
+					$this->plugin_data,
+					false,
+					$ver_param
 				),
 				'size_png_as_webp_url'  => FileLoader::get_file_size_by_url(
 					$uploads_url . RewritesError::PATH_OUTPUT_FILE_PNG,
-					$plugin
+					$this->plugin_data,
+					true,
+					$ver_param
 				),
 				'size_png2_as_webp_url' => FileLoader::get_file_size_by_url(
 					$uploads_url . RewritesError::PATH_OUTPUT_FILE_PNG2,
-					$plugin
+					$this->plugin_data,
+					true,
+					$ver_param
 				),
 			]
 		);
