@@ -1,6 +1,5 @@
 .calculator {
   $root: &;
-  height: 100vh;
 
   &__inner {
     display: flex;
@@ -30,7 +29,6 @@
     position: relative;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 100px;
 
     &::after,
     &::before {
@@ -99,6 +97,10 @@
     top: -150px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  &__content {
+    margin: 100px 0;
   }
 
   &__card {
