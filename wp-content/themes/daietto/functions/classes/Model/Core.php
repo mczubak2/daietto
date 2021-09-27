@@ -7,7 +7,7 @@
     public function __construct()
     {
       new Options();
-      new GenericPost();
+      new Meals();
     }
   }
 

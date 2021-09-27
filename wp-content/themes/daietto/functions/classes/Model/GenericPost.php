@@ -251,7 +251,7 @@
         'text'         => $text,
         'time'         => $time,
         'date'         => $date,
-        'file'         => $file,
+        'file'          => $file,
         'category'     => $category,
         'tags'         => $tags,
         'participants' => $participants,

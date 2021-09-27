@@ -8,6 +8,7 @@
     {
       add_action('wp_loaded', [$this, 'registerScripts']);
       add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+      add_action('wp_enqueue_scripts', [$this, 'namespaceEnqueueScripts']);
     }
 
     public function registerScripts()
@@ -22,5 +23,15 @@
     {
       wp_enqueue_style('frontend_styles');
       wp_enqueue_script('frontend_scripts');
+    }
+
+    public function namespaceEnqueueScripts()
+    {
+      wp_enqueue_script('namespace-scripts', $distPath . 'js/namespace-scripts.js', array(), '1.0.0', true);
+
+      wp_localize_script('namespace-scripts', 'mynamespace', array(
+        'rootapiurl' => esc_url_raw(rest_url()),
+        'nonce' => wp_create_nonce('wp_rest')
+      ));
     }
   }

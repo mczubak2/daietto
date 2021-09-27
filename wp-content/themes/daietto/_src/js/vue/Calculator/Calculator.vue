@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import CalculatorGender from "./CalculatorGender";
 import CalculatorAge from "./CalculatorAge";
+import CalculatorGender from "./CalculatorGender";
 import CalculatorHeight from "./CalculatorHeight";
 import CalculatorWeight from "./CalculatorWeight";
 import CalculatorResult from "./CalculatorResult";
@@ -85,11 +85,12 @@ export default {
   },
   data() {
     return {
-      currentComponent: CalculatorGender,
+      initialComponent: CalculatorGender,
+      currentComponent: this.initialComponent,
       timelineProgress: 0,
       components: [
-        CalculatorGender,
         CalculatorAge,
+        CalculatorGender,
         CalculatorHeight,
         CalculatorWeight,
         CalculatorResult,
