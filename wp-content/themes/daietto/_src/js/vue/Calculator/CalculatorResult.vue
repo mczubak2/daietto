@@ -1,8 +1,6 @@
 <template>
   <div class="calculator__card">
-    <div 
-      v-if="dailyCalories" 
-      class="calculator__cardResult">
+    <div v-if="dailyCalories" class="calculator__cardResult">
       <h1 class="calculator__cardTitle">
         {{ resultContent.header }}
       </h1>
@@ -10,18 +8,18 @@
         {{ dailyCalories }}{{ resultContent.unit }}
       </div>
       <h1 class="calculator__cardTitle calculator__cardTitle--footer">
-        {{ resultContent.footer }} <span class="calculator__cardTitleIcon">🖐</span>
+        {{ resultContent.footer }}
+        <span class="calculator__cardTitleIcon">🖐</span>
       </h1>
     </div>
-    <div 
-      v-else 
-      class="calculator__cardNotReady">
+    <div v-else class="calculator__cardNotReady">
       <h1 class="calculator__cardTitle calculator__cardTitle--lessSpace">
         {{ resultContent.empty }}
       </h1>
-      <span 
+      <span
         @click="$emit('firstStep', true)"
-        class="calculator__cardIcon calculator__cardIcon--alone">
+        class="calculator__cardIcon calculator__cardIcon--alone"
+      >
         👈
       </span>
     </div>
@@ -29,22 +27,37 @@
 </template>
 
 <script>
+import { api } from "../../helpers/api";
+
 export default {
-  name: 'CalculatorResult',
+  name: "CalculatorResult",
   props: {
     resultContent: {
       type: Object,
-      required: true
+      required: true,
     },
     dailyCalories: {
       type: Number,
-      required: true
+      required: true,
     },
   },
   data() {
     return {
-      weight: 0
-    }
+      weight: 0,
+    };
   },
-}
+  methods: {
+    async getMeals() {
+      await api
+        .get("/api/v1/meals", {})
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  mounted() {},
+};
 </script>

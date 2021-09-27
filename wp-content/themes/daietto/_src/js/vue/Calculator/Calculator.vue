@@ -85,8 +85,7 @@ export default {
   },
   data() {
     return {
-      initialComponent: CalculatorGender,
-      currentComponent: this.initialComponent,
+      currentComponent: CalculatorAge,
       timelineProgress: 0,
       components: [
         CalculatorAge,
