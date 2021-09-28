@@ -12,6 +12,7 @@
         :class="{'calculator__cardInput--invalid': errorMessage}"
         v-model="weight" 
         type="text"> 
+      <p class="calculator__cardErrorMessage">{{ errorMessage }}</p>
     </div>
     <button @click="sendData(weight)" class="calculator__cardButton">
       {{ weightContent.button }}

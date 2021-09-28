@@ -9,7 +9,7 @@
       </div>
       <button
         class="calculator__cardButton calculator__cardButton--moreSpace"
-        @click="generateDiet(dailyCalories)"
+        @click="sendCalculatedCalories"
       >
         {{ resultContent.button }}
       </button>
@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import { api } from "../../helpers/api";
-
 export default {
   name: "CalculatorResult",
   props: {
@@ -47,25 +45,11 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      weight: 0,
-    };
-  },
   methods: {
-    async getMeals() {
-      await api
-        .get("/api/v1/meals", {})
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    sendCalculatedCalories() {
+      localStorage.setItem("calculatedCalories", this.dailyCalories);
+      window.dispatchEvent(new Event('storage'));
     },
-  },
-  mounted() {
-    this.getMeals();
   },
 };
 </script>
