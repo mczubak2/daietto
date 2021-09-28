@@ -15,3 +15,5 @@
     </div>
   </div>
 </section>
+
+<?php if ($section['with_generator']) get_template_part( 'includes/components/generator' )?>

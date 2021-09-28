@@ -1,8 +1,10 @@
 import Vue from 'vue';
 
 import Calculator from '@/Calculator/Calculator.vue';
+import Generator from '@/Generator/Generator.vue';
 
 Vue.component('v-calculator', Calculator);
+Vue.component('v-generator', Generator);
 
 const ready = (fn) => {
   if (document.attachEvent

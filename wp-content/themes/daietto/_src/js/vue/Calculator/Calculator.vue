@@ -95,8 +95,8 @@ export default {
         CalculatorResult,
       ],
       data: {
-        gender: null,
         age: null,
+        gender: null,
         height: null,
         weight: null,
       },

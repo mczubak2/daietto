@@ -1,18 +1,24 @@
 <template>
   <div class="calculator__card">
-    <div v-if="dailyCalories" class="calculator__cardResult">
+    <div v-if="dailyCalories" class="calculator__cardInner">
       <h1 class="calculator__cardTitle">
         {{ resultContent.header }}
       </h1>
       <div class="calculator__cardCalories">
         {{ dailyCalories }}{{ resultContent.unit }}
       </div>
+      <button
+        class="calculator__cardButton calculator__cardButton--moreSpace"
+        @click="generateDiet(dailyCalories)"
+      >
+        {{ resultContent.button }}
+      </button>
       <h1 class="calculator__cardTitle calculator__cardTitle--footer">
         {{ resultContent.footer }}
         <span class="calculator__cardTitleIcon">🖐</span>
       </h1>
     </div>
-    <div v-else class="calculator__cardNotReady">
+    <div v-else>
       <h1 class="calculator__cardTitle calculator__cardTitle--lessSpace">
         {{ resultContent.empty }}
       </h1>
@@ -58,6 +64,8 @@ export default {
         });
     },
   },
-  mounted() {},
+  mounted() {
+    this.getMeals();
+  },
 };
 </script>

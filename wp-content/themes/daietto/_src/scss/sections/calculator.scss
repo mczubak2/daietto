@@ -115,7 +115,12 @@
       animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     }
   }
-  
+
+  &__cardInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
   
   &__cardTitle {
     margin-bottom: 50px;
@@ -170,6 +175,11 @@
     color: $cWhite;
     font-size: 1.5rem;
     font-weight: 500;
+    max-width: 200px;
+
+    &--moreSpace {
+      margin-bottom: 30px;
+    }
 
     &:hover {
       background-color: $cWhite;
@@ -288,11 +298,15 @@
 
   &__background {
     position: absolute;
-    top: -200px;
-    right: 70%;
-    width: 100%;
+    top: -20px;
+    right: 80%;
+    width: 60%;
     transform-origin: right;
     z-index: -10;
+  }
+
+  &__backgroundItem {
+    max-width: 100%;
   }
 
   @keyframes shake {
