@@ -85,7 +85,7 @@ export default {
   },
   data() {
     return {
-      currentComponent: CalculatorAge,
+      currentComponent: CalculatorWeight,
       timelineProgress: 0,
       components: [
         CalculatorAge,
@@ -95,10 +95,10 @@ export default {
         CalculatorResult,
       ],
       data: {
-        age: null,
-        gender: null,
-        height: null,
-        weight: null,
+        age: 25,
+        gender: true,
+        height: 200,
+        weight: 200,
       },
       errorMessage: "",
       result: 0,
@@ -153,20 +153,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.fadeSlide-enter-active,
-.fadeSlide-leave-active {
-  transition: 0.3s;
-}
-.fadeSlide-enter,
-.fadeSlide-leave-to {
-  opacity: 0;
-}
-.fadeSlide-enter {
-  transform: translateX(-50%);
-}
-.fadeSlide-leave-to {
-  transform: translateX(50%);
-}
-</style>

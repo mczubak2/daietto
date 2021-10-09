@@ -1,11 +1,13 @@
 <template>
-  <div class="generator__component" data-aos="fade-up">
-    <ul v-if="meals">
-      <li v-for="item in meals" :key="item.id">
-        {{ item }}
-      </li>
-    </ul>
-  </div>
+  <transition name="fadeSlide">
+    <div class="generator__component" v-if="dietMeals">
+      <ul>
+        <li v-for="item in dietMeals" :key="item.id">
+          {{ item.title }}
+        </li>
+      </ul>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -16,7 +18,8 @@ export default {
   props: {},
   data() {
     return {
-      meals: [],
+      allMeals: [],
+      dietMeals: [],
       caloricNeeds: 0,
     };
   },
@@ -25,28 +28,50 @@ export default {
       return await api
         .get("/api/v1/meals", {})
         .then((response) => {
-          return (response = response.data.data.items);
+          return response.data.data.items;
         })
         .catch((error) => {
           console.log(error);
         });
     },
+    generateDiet(meals, needs, number) {
+      let selectedMeals = [];
+      const caloriesPerMeal = Math.round(needs / number);
+
+      for (let i = 0; i < number; i++) {
+
+        let fittedMealIndex = 0;
+        let diff;
+
+        meals.forEach((element, index) => {
+
+          const currentCalories = parseInt(element.macronutrients.calories);
+          const currentDiff = Math.abs(caloriesPerMeal - currentCalories);
+
+          diff = index === 0 || diff === undefined ? currentDiff : diff;
+          
+          if (currentDiff < diff) {
+            diff = currentDiff;
+            fittedMealIndex = index;
+          }
+        })
+
+        selectedMeals = [...selectedMeals, ...meals.splice(fittedMealIndex, 1)];
+      }
+
+      return selectedMeals;
+    }
   },
   mounted() {
-    window.onstorage = async () => {
-      this.caloricNeeds = localStorage.getItem("calculatedCalories");
+    window.addEventListener('caloriesCalculated', async (event) => {
+      this.caloricNeeds = event.detail.calculatedCalories;
 
-      if (this.caloricNeeds) {
-        this.meals = await this.getMeals();
+      if (this.caloricNeeds) {r
+        this.allMeals = await this.getMeals();
 
-        this.meals.forEach((element) => {
-          console.log(element);
-        });
+        this.dietMeals = this.generateDiet(this.allMeals, this.caloricNeeds, 3);
       }
-    };
+    })
   },
 };
 </script>
-
-<style>
-</style>

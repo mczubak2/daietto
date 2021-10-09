@@ -228,14 +228,15 @@
 
       $postId = $postObj->ID;
 
-      $url     = get_permalink($postId);
-      $title   = get_the_title($postId);
-      $excerpt = get_the_excerpt($postId);
-      $text    = get_field('description', $postId);
-      $time    = get_post_time('U', false, $postId);
-      $date    = date_i18n('M j, Y G:i', $time);
-
-      $participants = get_field('participants');
+      $url      = get_permalink($postId);
+      $title    = get_the_title($postId);
+      $excerpt  = get_the_excerpt($postId);
+      $text     = get_field('description', $postId);
+      $time     = get_post_time('U', false, $postId);
+      $date     = date_i18n('M j, Y G:i', $time);
+      
+      $macronutrients = get_field('meal', $postId)['macronutrients'];
+      $participants   = get_field('participants');
 
       $file = get_field('file', $postId);
       $file = ($file != '') ? $file : null;
@@ -244,17 +245,18 @@
       $tags = static::getPostTags($postId);
 
       return [
-        'id'           => $postId,
-        'url'          => $url,
-        'title'        => $title,
-        'excerpt'      => $excerpt,
-        'text'         => $text,
-        'time'         => $time,
-        'date'         => $date,
-        'file'          => $file,
-        'category'     => $category,
-        'tags'         => $tags,
-        'participants' => $participants,
+        'id'             => $postId,
+        'url'            => $url,
+        'title'          => $title,
+        'excerpt'        => $excerpt,
+        'text'           => $text,
+        'time'           => $time,
+        'date'           => $date,
+        'file'            => $file,
+        'category'       => $category,
+        'tags'           => $tags,
+        'participants'   => $participants,
+        'macronutrients' => $macronutrients,
       ];
     }
 

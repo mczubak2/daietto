@@ -47,8 +47,13 @@ export default {
   },
   methods: {
     sendCalculatedCalories() {
-      localStorage.setItem("calculatedCalories", this.dailyCalories);
-      window.dispatchEvent(new Event('storage'));
+      const event = new CustomEvent('caloriesCalculated', {
+        detail: {
+          calculatedCalories: this.dailyCalories
+        }
+      })
+      
+      window.dispatchEvent(event);
     },
   },
 };
