@@ -236,6 +236,8 @@
       $date     = date_i18n('M j, Y G:i', $time);
       
       $macronutrients = get_field('meal', $postId)['macronutrients'];
+      $image          = get_field('meal', $postId)['image']['url'];
+
       $participants   = get_field('participants');
 
       $file = get_field('file', $postId);
@@ -257,6 +259,7 @@
         'tags'           => $tags,
         'participants'   => $participants,
         'macronutrients' => $macronutrients,
+        'image'          => $image,
       ];
     }
 
