@@ -30,6 +30,8 @@
 		"vue-template-compiler": "^2.6.12"
 	},
 	"devDependencies": {
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.4.4",
 		"vue-loader": "^15.9.5"
 	}
 }

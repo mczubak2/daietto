@@ -9,7 +9,7 @@
       </div>
       <button
         class="calculator__cardButton calculator__cardButton--moreSpace"
-        @click="sendCalculatedCalories"
+        @click="setCalculatedCalories(dailyCalories)"
       >
         {{ resultContent.button }}
       </button>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: "CalculatorResult",
   props: {
@@ -46,15 +48,9 @@ export default {
     },
   },
   methods: {
-    sendCalculatedCalories() {
-      const event = new CustomEvent('caloriesCalculated', {
-        detail: {
-          calculatedCalories: this.dailyCalories
-        }
-      })
-      
-      window.dispatchEvent(event);
-    },
+    ...mapMutations({
+      setCalculatedCalories: 'setCalculatedCalories',
+    }),
   },
 };
 </script>

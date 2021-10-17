@@ -1,17 +1,20 @@
 <template>
   <transition name="fadeSlide">
     <div class="generator__component" v-if="dietMeals">
-      <ul>
-        <li v-for="item in dietMeals" :key="item.id">
-          {{ item.title }}
-        </li>
-      </ul>
+      <div class="generator__inner">
+        <ul class="generator__list">
+          <li class="generator__item" v-for="item in dietMeals" :key="item.id">
+            {{ item.title }}
+          </li>
+        </ul>
+      </div>
     </div>
   </transition>
 </template>
 
 <script>
-import { api } from "../../helpers/api";
+import { api } from "../../../helpers/api";
+import { mapState } from 'vuex';
 
 export default {
   name: "Generator",
@@ -20,14 +23,24 @@ export default {
     return {
       allMeals: [],
       dietMeals: [],
-      caloricNeeds: 0,
     };
+  },
+  computed: {
+    ...mapState([
+      'calculatedCalories'
+    ])
+  },
+  watch: {
+    calculatedCalories(newVal) {
+      if (newVal) return this.setValues();
+    }
   },
   methods: {
     async getMeals() {
       return await api
         .get("/api/v1/meals", {})
         .then((response) => {
+          console.log(response.data.data.items);
           return response.data.data.items;
         })
         .catch((error) => {
@@ -60,18 +73,11 @@ export default {
       }
 
       return selectedMeals;
+    },
+    async setValues() {
+      this.allMeals = await this.getMeals();
+      this.dietMeals = this.generateDiet(this.allMeals, this.calculatedCalories, 3);
     }
-  },
-  mounted() {
-    window.addEventListener('caloriesCalculated', async (event) => {
-      this.caloricNeeds = event.detail.calculatedCalories;
-
-      if (this.caloricNeeds) {r
-        this.allMeals = await this.getMeals();
-
-        this.dietMeals = this.generateDiet(this.allMeals, this.caloricNeeds, 3);
-      }
-    })
   },
 };
 </script>

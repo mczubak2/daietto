@@ -1,4 +1,4 @@
-const mix  = require('laravel-mix');
+const mix = require('laravel-mix');
 const path = require('path');
 
 mix.disableNotifications();
@@ -14,7 +14,9 @@ mix.js(
     '_src/js/classes/Core.js',
   ],
   'public/build/js/scripts.js',
-).vue({ version: 2 });
+).vue({
+  version: 2
+});
 
 mix.sass(
   '_src/scss/core.scss',
@@ -59,6 +61,19 @@ mix.webpackConfig({
       '~': path.resolve(__dirname, '_src/js/classes/'),
     },
   },
+});
+
+mix.webpackConfig({
+  module: {
+    rules: [{
+      test: /\.tsx?$/,
+      loader: "ts-loader",
+      exclude: /node_modules/
+    }]
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"]
+  }
 });
 
 mix.options({
