@@ -1,6 +1,6 @@
 <template>
   <transition name="fadeSlide" v-if="dietMeals.length">
-    <draggable class="generator__draggable" v-model="dietMeals">
+    <draggable class="generator__draggable" v-model="dietMeals" ref="draggable">
       <transition-group tag="ul" class="generator__list">
         <li class="generator__item" v-for="item in dietMeals" :key="item.id">
           <div class="generator__itemImageWrapper">
@@ -10,7 +10,6 @@
             <div class="generator__itemTitle">
               {{ item.title }}
             </div>
-
           </div>
         </li>
       </transition-group>
@@ -86,7 +85,16 @@ export default {
         this.calculatedCalories,
         3
       );
+
+      if (await this.allMeals) this.scrollToCenter();
     },
+    scrollToCenter() {
+      this.$refs.draggable.$el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+      });
+    }
   },
 };
 </script>
