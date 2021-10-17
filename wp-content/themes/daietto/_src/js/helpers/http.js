@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const api = axios.create({
+export const http = axios.create({
   baseURL: mynamespace.rootapiurl,
   headers: {
     'content-type': 'application/json',

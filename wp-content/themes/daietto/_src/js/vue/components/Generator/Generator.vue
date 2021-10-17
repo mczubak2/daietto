@@ -1,19 +1,15 @@
 <template>
   <transition name="fadeSlide">
-    <div class="generator__component" v-if="dietMeals">
-      <div class="generator__inner">
-        <ul class="generator__list">
-          <li class="generator__item" v-for="item in dietMeals" :key="item.id">
-            {{ item.title }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    <ul class="generator__list" v-if="dietMeals">
+      <li class="generator__item" v-for="item in dietMeals" :key="item.id">
+        {{ item.title }}
+      </li>
+    </ul>
   </transition>
 </template>
 
 <script>
-import { api } from "../../../helpers/api";
+import { http } from "../../../helpers/http";
 import { mapState } from 'vuex';
 
 export default {
@@ -37,14 +33,13 @@ export default {
   },
   methods: {
     async getMeals() {
-      return await api
+      return await http
         .get("/api/v1/meals", {})
         .then((response) => {
-          console.log(response.data.data.items);
           return response.data.data.items;
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     },
     generateDiet(meals, needs, number) {
