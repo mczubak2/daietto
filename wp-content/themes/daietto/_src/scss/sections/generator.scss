@@ -1,23 +1,67 @@
 .generator {
 
   &__inner {
-    display: grid;
-    place-items: center;
     padding-bottom: 70px;
   }
 
+  &__header {
+    margin-bottom: 20px;
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__draggable {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
   &__list {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 700px;
     width: 100%;
   }
 
   &__item {
     background-color: $cWhite;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 5px 5px 15px 5px rgba($cAdditional, .16);
+    display: flex;
+  }
+
+  &__itemImageWrapper {
+    max-width: 125px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      height: 90%;
+      transform: translate(-50%, -50%);
+      border-radius: 100px;
+      box-shadow: 0 0 32px 10px rgba($cAdditional, .5);
+      content: '';
+      z-index: 0;
+    }
+  }
+
+  &__itemImage {
+    max-width: 100%;
+  }
+
+  &__itemContent {
+    padding: 20px;
+  }
+
+  &__itemTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
   }
 }
