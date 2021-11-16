@@ -83,7 +83,7 @@ Więcej informacji o nich można znaleźć [tutaj](https://github.com/sds/scss-l
 
 ## Podgląd
 
-* krótka prezentacja -> `https://streamable.com/mqk7oe`
+* krótka prezentacja -> https://streamable.com/mqk7oe
 
 ## TODO
 
