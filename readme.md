@@ -34,7 +34,6 @@
 2. Otwórz konsolę Node.js.
 3. Przejdź do głównego katalogu motywu _(znajduje się w nim plik package.json)_.
 4. Uruchom polecenie `npm i` _(tylko za pierwszym razem)_.
-5. Do obsługi Webpack użyta została paczka [Mati Mix](https://www.npmjs.com/package/mati-mix/) _(zapoznaj się z dokumentacją w razie problemów)_.
 
 ## ESLint
 
@@ -81,5 +80,14 @@ Więcej informacji o nich można znaleźć [tutaj](https://github.com/sds/scss-l
   * Languages -> Settings -> URL modifications (Settings) -> Save Changes _(dotyczy stron korzystających z pluginu Polylang)_
 
 &nbsp;
+
+## Podgląd
+
+* krótka prezentacja -> `https://streamable.com/mqk7oe`
+
+## TODO
+
+1. start działania animacji sekcji
+2. content do kart z wygenerowaną dietą
 
 * Mikołaj Czubak *(developer)*
