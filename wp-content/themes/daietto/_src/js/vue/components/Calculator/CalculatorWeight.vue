@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      weight: 200,
+      weight: '',
       shake: false,
       errorMessage: ''
     }

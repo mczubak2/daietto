@@ -9,7 +9,6 @@
 
 * Informacje:
 
-  * [Materiały](#materia%C5%82y)
   * [Osoby odpowiedzialne za projekt](#osoby-odpowiedzialne-za-projekt)
 
 &nbsp;
@@ -19,22 +18,6 @@
   AllowOverride All
   Require all granted
   ```
-
-* php.ini:
-
-| Zmienna | Wartość |
-|:--|--:|
-| allow_url_fopen | On |
-| upload_max_filesize | 16M `[*]` |
-| post_max_size | 16M `[*]` |
-| memory_limit | 512M `[*]` |
-| max_execution_time | 60 `[*]` |
-| max_input_vars | 10000 |
-| suhosin.get.max_vars | 10000 |
-| suhosin.post.max_vars | 10000 |
-| suhosin.request.max_vars | 10000 |
-
-`*` - minimalna wartość
 
 &nbsp;
 
@@ -47,7 +30,7 @@
 
 ## Webpack
 
-1. Zainstaluj [Node.js](https://nodejs.org/) _(wersja 7.5.x lub wyżej)_.
+1. Zainstaluj [Node.js](https://nodejs.org/) _(wersja 14.17.3)_.
 2. Otwórz konsolę Node.js.
 3. Przejdź do głównego katalogu motywu _(znajduje się w nim plik package.json)_.
 4. Uruchom polecenie `npm i` _(tylko za pierwszym razem)_.
@@ -90,22 +73,12 @@ Więcej informacji o nich można znaleźć [tutaj](https://github.com/sds/scss-l
 ## Dodatkowe informacje
 
 * adresy strony:
-  * lokalny: `http://bonabanco.test/`
-  * produkcyjny: `https://bonabanco.beta.crafton.pl/`
-* adres logowania: **/my-login/**
+  * lokalny: `http://daietto.test/`
+* adres logowania: **/wp-admin/**
 * nie wrzucaj na serwer katalogu **/node_modules**
 * pamiętaj przy każdym przenoszeniu serwisu na inny adres URL o wykonaniu akcji w panelu administracyjnym:
   * Settings -> Permalinks -> Save Changes
   * Languages -> Settings -> URL modifications (Settings) -> Save Changes _(dotyczy stron korzystających z pluginu Polylang)_
-
-&nbsp;
-
-## Materiały
-
-| | Adres URL |
-|:--|:-:|
-
-| Projekt graficzny | /design/* |
 
 &nbsp;
 

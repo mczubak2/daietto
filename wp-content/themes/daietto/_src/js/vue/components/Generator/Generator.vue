@@ -35,7 +35,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(["calculatedCalories"]),
+    ...mapState([
+      "calculatedCalories"
+    ]),
   },
   watch: {
     calculatedCalories(newVal) {

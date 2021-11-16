@@ -13,6 +13,7 @@ class Core
   {
     new Footer();
     new Header();
+
     new ProgressCircle();
     new Slider();
     new AnimateOnScroll();

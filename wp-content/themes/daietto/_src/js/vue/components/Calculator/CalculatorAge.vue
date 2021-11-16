@@ -46,7 +46,6 @@ export default {
       
       if ( !Number.isInteger(value) || value < 3 || value > 120) {
 
-
         if (!Number.isInteger(value)) this.errorMessage = 'Please type a number';
         if (value < 3 || value > 120) this.errorMessage = "I don't belive you";
 
